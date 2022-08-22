@@ -1,19 +1,94 @@
-<!DOCTYPE html>
 <html lang="en">
 
-   <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta http-equiv="X-UA-Compatible" content="ie=edge">
-      <title>{{appTitle}}</title>
-      <link rel="stylesheet" href="/stylesheets/style.css" />
-   </head>
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+   <title></title>
+   <link rel="stylesheet" href="/stylesheets/style.css" />
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+   <link rel="icon" type="image/x-icon" href="/images/home-logo1.png">
 
-   <body>
+   {{!-- OpenLayers map: --}}
+   <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
+   <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+</head>
 
+<body class="d-flex flex-column h-100" style="background-color:#d7d5d5">
+
+
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
+      <div class="container-fluid ">
+         <div class="mx-5"></div>
+         <div>
+            <a href="/">
+               <img src="/images/home-logo1.png" width="30" height="30" background-color="white "
+                  class=" rounded d-inline-block align-text-top">
+            </a>
+         </div>
+
+         <a class="navbar-brand px-2" href="/">Real Estate</a>
+
+         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+         </button>
+         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+               </li>
+               <li class="nav-item">
+                  <a class="nav-link" href="/sale">Properties</a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link" href="/sale/create">Add an Propertie</a>
+               </li>
+               {{#if user}}
+               <li class="nav-item">
+                  <a class="nav-link" href="/auth/user-profile">My Profile</a>
+               </li>
+               {{/if}}
+            </ul>
+
+            {{#unless user}}
+            <a href="/auth/login" class="btn btn-outline-light mx-1" role="button">Login</a>
+            <a href="/auth/signup" class="btn btn-outline-light mx-1" role="button">Register</a>
+            {{/unless}}
+
+            {{#if user}}
+            <form class="m-0" id="logout-form" action="/auth/logout" method="POST">
+               <button class="btn btn-outline-light">Logout</button>
+            </form>
+
+            {{/if}}
+
+
+         </div>
+      </div>
+   </nav>
+
+   <div>
       {{{body}}}
+   </div>
 
-      <script src="/js/script.js"></script>
-   </body>
+
+   <footer class="footer mt-auto py-4 bg-dark bg-gradient bg-opacity-80 text-white-50">
+      <div class="container text-center">
+         <small> Created by Clark & Ali</small>
+      </div>
+   </footer>
+
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+      crossorigin="anonymous"></script>
+   <script src="/js/script.js"></script>
+</body>
 
 </html>
