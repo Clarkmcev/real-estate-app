@@ -1,0 +1,72 @@
+<section class="vh-100">
+    <div class="container h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col col-xl-10">
+                <div class="card" id="no-scale" style="border-radius: 1rem;">
+                    <div class="row g-0">
+                        <div class="col-md-6 col-lg-5 d-none d-md-block">
+                            <img src="/images/register-background1.jpg" alt="login form" class="img-fluid h-100"
+                                style="border-radius: 1rem 0 0 1rem;" />
+                        </div>
+                        <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                            <div class="card-body p-4 p-lg-5 text-black">
+
+                                <form action="/auth/signup" method="POST">
+
+                                    <div class="feature-icon d-flex align-items-center mb-3 pb-1">
+
+                                        <img style="max-height: 5em;" src="/images/register-logo1.png">
+                                    </div>
+
+
+                                    <h5 class="fw-normal mb-3 pb-3" style="color: #3b28c8; style=" letter-spacing:
+                                        1px;">Create your account
+                                    </h5>
+
+                                    <div class="form-outline mb-2">
+                                        <input type="text" name="username" class="form-control form-control-lg"
+                                            placeholder="saleallmyflats" required />
+
+
+                                        <label class="form-label" style="color: #3b28c8; for="
+                                            form2Example17">Username</label>
+                                    </div>
+
+                                    <div class="form-outline mb-2">
+                                        <input type="email" name="email" class="form-control form-control-lg"
+                                            placeholder="xxx@xxxx.com" required />
+
+                                        <label class="form-label" style="color: #3b28c8; for=" form2Example17">Email
+                                            address</label>
+                                    </div>
+
+                                    <div class="form-outline mb-2">
+                                        <input type="password" name="password" class="form-control form-control-lg"
+                                            placeholder="********" required />
+
+                                        <label class="form-label" style="color: #3b28c8; for="
+                                            form2Example27">Password</label>
+                                    </div>
+                                    {{#if errorMessage}}
+                                    <div class="pt-1 mb-4">
+                                        {{errorMessage}}
+                                    </div>
+                                    {{/if}}
+
+                                    <div class="pt-1 mb-4">
+                                        <button class="btn btn-primary btn-lg w-100" type="submit">Register</button>
+                                    </div>
+                                    <p class="mb-4 pb-lg-2" style="color: #393f81;">Already have an account? Click <a
+                                            href="/auth/login" style="color: #393f81;">to login.</a></p>
+                                    <a href="#!" class="small text-muted">Terms of use.</a>
+                                    <a href="#!" class="small text-muted">Privacy policy</a>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
