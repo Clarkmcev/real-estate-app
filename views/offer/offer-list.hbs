@@ -1,0 +1,20 @@
+<section class="container-list">
+    <h1>Offer list</h1>
+    <hr>
+    <div class="row">
+        {{#each foundOffers}}
+            <div class="col-md-4">
+                <article class="character">
+                    <h2>{{name}} <small>(ID {{id}})</small></h2>
+                    <hr>
+                    <img src={{images}} style="width: 100px"> 
+                    <p>Address: {{address}}</p>
+                    <p>Land size: {{landSize}}</p>
+                    <p>Price: {{price}}</p>
+                    <p>Date: {{date}}</p>
+                    <a href="/offer/details/{{id}}">Details</a>
+                </article>
+            </div>
+        {{/each}}
+    </div>
+</section>
