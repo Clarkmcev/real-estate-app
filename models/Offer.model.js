@@ -21,6 +21,7 @@ const offerSchema = new Schema({
   images: String,
   price: { type: Number, required: true },
   description: { type: String, required: true },
+  owner: { type: Schema.Types.ObjectId, ref: "User" },
   date: { type: Date, default: Date.now },
 });
 

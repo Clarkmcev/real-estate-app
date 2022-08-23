@@ -21,7 +21,7 @@ router.get("/create", (req, res, next) => {
 });
 
 router.post("/create", fileUploader.single("image-cover"), (req, res, next) => {
-  console.log(req.file);
+  const { _id } = req.session.currentUser;
   const {
     name,
     address,
@@ -44,9 +44,10 @@ router.post("/create", fileUploader.single("image-cover"), (req, res, next) => {
     garages,
     livingAreas,
     description,
+    owner: _id,
   })
     .then(() => {
-      res.render("offer/offer-list");
+      res.redirect("/offer/offer-list");
     })
     .catch((err) => {
       console.error(err);

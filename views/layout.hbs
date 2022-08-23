@@ -37,21 +37,22 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/">Home</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="/sale">Properties</a>
-               </li>
-
-               <li class="nav-item">
-                  <a class="nav-link" href="/sale/create">Add an Propertie</a>
-               </li>
                {{#if user}}
                <li class="nav-item">
                   <a class="nav-link" href="/auth/user-profile">My Profile</a>
                </li>
                {{/if}}
+               <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="/">Home</a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link" href="/offer/list">Offers</a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link" href="/offer/create">New offer</a>
+               </li>
             </ul>
 
             {{#unless user}}
@@ -65,7 +66,6 @@
             </form>
 
             {{/if}}
-
 
          </div>
       </div>
