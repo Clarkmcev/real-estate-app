@@ -16,7 +16,6 @@ const offerSchema = new Schema({
   bedrooms: { type: Number },
   garages: { type: Number },
   livingAreas: { type: Number },
-  deposit: { type: Number },
   rent: { type: Number },
   images: { type: String, required: true },
   price: { type: Number },

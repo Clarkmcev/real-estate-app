@@ -2,15 +2,36 @@
     <main class="mt-5 pt-4">
         <div class="container dark-grey-text mt-5 px-4 bg-light bg-opacity-50">
             <div class="row wow fadeIn">
+
+                {{#if user.imageProfile}}
                 <div class="col-md-6 mb-4">
-                    <img src="/images/user-icon.png" class="img-fluid">
+                    <img src="{{user.imageProfile}}" class="img-fluid">
                 </div>
+                {{/if}}
+
+                {{#unless user.imageProfile}}
+                <div class="col-md-6 mb-4">
+                    <img src="/images/l60Hf.png" class="img-fluid">
+                </div>
+                {{/unless}}
+            
+        <form action="/auth/user-profile" method="post" enctype="multipart/form-data">
+            <div class="form-control">
+                <label class="header">Profile Photo:</label>
+                
+                <input id="image" type="file" name="profile" placeholder="Photo">
+            </div>
+            
+            <input type="submit" class="register" value="Upload">
+        </form>
+
                 <div class="col-md-6 mb-4">
                     <div class="p-4">
                         <div class="mb-3">
-                            <h2 class="pt-3">Your Account</h2>
+                            <h2 class="pt-3">Hello, {{user.username}}</h2>
                         <div>Your offers</div>
                             <section class="container-list">
+                            
                                 <hr>
                                 <div class="row">
                                     {{#each offersByOwner}}
