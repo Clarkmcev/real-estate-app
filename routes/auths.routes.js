@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const Offer = require("../models/Offer.model");
 
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
@@ -147,8 +148,38 @@ router.post("/logout", (req, res) => {
   });
 });
 
+// Profile routes
 router.get("/user-profile", (req, res, next) => {
-  res.render("auth/user-profile", { user: req.session.user });
+  const { _id } = req.session.currentUser;
+  User.findById(_id)
+    .populate("likes")
+    .then((foundUser) => {
+      const arrLikes = foundUser.likes;
+      Offer.find({ owner: _id }).then((offersByOwner) => {
+        if (req.session.currentUser) {
+          const { username } = req.session.currentUser;
+          res.render("auth/user-profile", {
+            username,
+            offersByOwner,
+            arrLikes,
+          });
+        } else {
+          res.render("auth/user-profile", { user: req.session.user });
+        }
+      });
+    })
+    .catch((err) => console.log(err));
+});
+
+// Remove a liked offer
+router.get("/remove/:id", (req, res, next) => {
+  const { _id } = req.session.currentUser;
+  const { id } = req.params;
+  User.findByIdAndUpdate(_id, { $pull: { likes: id } })
+    .then((user) => {
+      res.render("auth/user-profile", { user: req.session.user });
+    })
+    .catch((err) => console.log(err));
 });
 
 module.exports = router;

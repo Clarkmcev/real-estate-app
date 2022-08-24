@@ -8,35 +8,53 @@
                 <div class="col-md-6 mb-4">
                     <div class="p-4">
                         <div class="mb-3">
-                            <p class="text font-italic">“Impossible is just a big word thrown around by small men who
-                                find it easier to
-                                live in the world they’ve been given than to explore the power they have to change it.
-                                Impossible is not
-                                a fact. It’s an opinion. Impossible is not a declaration. It’s a dare. Impossible is
-                                potential.
-                                Impossible is temporary. Impossible is nothing.”</p>
-                            <p class="text font-italic">MUHAMMAD ALI</p>
                             <h2 class="pt-3">Your Account</h2>
+                        <div>Your offers</div>
+                            <section class="container-list">
+                                <hr>
+                                <div class="row">
+                                    {{#each offersByOwner}}
+                                        <div class="col-md-4">
+                                            <article class="character">
+                                                <h2>{{name}}</h2>
+                                                <hr>
+                                                <img src={{images}} style="width: 100px"> 
+                                                <p>Address: {{address}}</p>
+                                                <p>Land size: {{landSize}}</p>
+                                                <p>Price: {{price}}</p>
+                                                <p>Date: {{date}}</p>
+                                                <a href="/offer/details/{{id}}">Details</a>
+                                                <a href="/offer/edit/{{id}}">Edit</a>
+                                            </article>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            </section>
+                        </div>
 
-                        </div>
-                        {{#if user}}
-                        <div class="lead">
-                            <h3>Welcome Propertie holder, {{ user.username }}!</h3>
-                            <p class="pt-4">This is your Sale/Rent account. Let's discover the best hauses in this
-                                world!</p>
-                            {{else}}
-                            <p>Still no logged in user, sorry! Just enter your email and your password, discover the
-                                world of training.</p>
-                            {{/if}}
+                        <div>Your likes</div>
+                            <section class="container-list">
+                                <hr>
+                                <div class="row">
+                                    {{#each arrLikes}}
+                                        <div class="col-md-4">
+                                            <article class="character">
+                                                <h2>{{name}}</h2>
+                                                <hr>
+                                                <img src={{images}} style="width: 100px"> 
+                                                <p>Address: {{address}}</p>
+                                                <p>Land size: {{landSize}}</p>
+                                                <p>Price: {{price}}</p>
+                                                <p>Date: {{date}}</p>
+                                                {{!-- <a href="/offer/details/{{id}}">Details</a> --}}
+                                                <a href="/offer/remove/{{id}}">Remove</a>
+                                            </article>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            </section>
                         </div>
 
-                        <div class="my-5">
-                            <a href="/sale" class="btn btn-dark-moon btn-outline-light btn-rounded text-white my-2 px-4"
-                                role="button">Arts</a>
-                            <a href="/rent"
-                                class="btn btn-dark-moon btn-outline-light btn-rounded text-white my-2 mx-3 px-3"
-                                role="button">Artists</a>
-                        </div>
                     </div>
                 </div>
             </div>

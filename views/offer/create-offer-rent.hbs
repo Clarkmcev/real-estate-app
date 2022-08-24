@@ -4,14 +4,14 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
 
-                <h1>New offer</h1>
+                <h1>New property for sale</h1>
 
                 <hr>
 
-                <form action="/offer/edit/{{foundOffer.id}}" method="POST" enctype="multipart/form-data">
+                <form action="/offer/create" method="POST" enctype="multipart/form-data">
 
                     <label for="types">Type :</label>
-                        <select name="type" id="type" value="{{foundOffer.type}}">
+                        <select name="type" id="type">
                         <option value="flat">Flat</option>
                         <option value="house">House</option>
 
@@ -19,15 +19,15 @@
                     <label>
 
                     <label>
-                        Name: <input type="text" name="name" placeholder="Name" value="{{foundOffer.name}}">
+                        Name: <input type="text" name="name" placeholder="Name">
                     </label>
 
                     <label>
-                        Address: <input type="text" name="address" placeholder="Address" value="{{foundOffer.address}}">
+                        Address: <input type="text" name="address" placeholder="Address">
                     </label>
 
                     <label>
-                        Land size: <input type="number" name="landSize" placeholder="500 m^2" value="{{foundOffer.landSize}}">m2
+                        Land size: <input type="number" name="landSize" placeholder="500 m^2">m2
                     </label>
 
                     <label>
@@ -35,11 +35,11 @@
                     </label>
 
                     <label>
-                        Price: <input type="number" name="price" placeholder="price" value="{{foundOffer.price}}">USD
+                        Price: <input type="number" name="price" placeholder="price">$
                     </label>
 
                     <label for="toilets">Toilets :
-                        <select name="toilets" id="toilets" value="{{foundOffer.toilets}}">
+                        <select name="toilets" id="toilets">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -48,7 +48,7 @@
                     </label>
 
                     <label for="bedrooms">Bedrooms :
-                        <select name="bedrooms" id="bedrooms" value="{{foundOffer.bedrooms}}">
+                        <select name="bedrooms" id="bedrooms">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -57,7 +57,7 @@
                     </label>
 
                     <label for="garages">Garage spaces :
-                        <select name="garages" id="garages" value="{{foundOffer.garages}}">
+                        <select name="garages" id="garages">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -66,7 +66,7 @@
                     </label>
 
                     <label for="livingRooms">Living areas :
-                        <select name="livingAreas" id="livingAreas" value="{{foundOffer.livingAreas}}">
+                        <select name="livingAreas" id="livingAreas">
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -75,10 +75,10 @@
                     </label>
 
                     <label>
-                        Description: <input type="text" name="description" placeholder="Description" value="{{foundOffer.description}}">
+                        Description: <input type="text" name="description" placeholder="Description">
                     </label>
 
-                    <input type="submit" value="Edit offer" class="btn-dark btn">
+                    <input type="submit" value="Create offer" class="btn-dark btn">
                     {{#if errorMessage}}
                     <p class="error">{{errorMessage}}</p>
                     {{/if}}

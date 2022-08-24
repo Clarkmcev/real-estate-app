@@ -37,11 +37,8 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               {{#if user}}
-               <li class="nav-item">
-                  <a class="nav-link" href="/auth/user-profile">My Profile</a>
-               </li>
-               {{/if}}
+               {{!-- {{#if user}} --}}
+               {{!-- {{/if}} --}}
                <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="/">Home</a>
                </li>
@@ -51,21 +48,29 @@
                </li>
 
                <li class="nav-item">
-                  <a class="nav-link" href="/offer/create">New offer</a>
+                  <a class="nav-link" href="/offer/create-rent">New Rent Offer</a>
                </li>
+
+               <li class="nav-item">
+                  <a class="nav-link" href="/offer/create-sale">New Sale Offer</a>
+               </li>
+
+               <li class="nav-item">
+                  <a class="nav-link" href="/auth/user-profile">My Profile</a>
+               </li>
+
             </ul>
 
-            {{#unless user}}
+            {{!-- {{#unless user}} --}}
             <a href="/auth/login" class="btn btn-outline-light mx-1" role="button">Login</a>
             <a href="/auth/signup" class="btn btn-outline-light mx-1" role="button">Register</a>
-            {{/unless}}
+            {{!-- {{/unless}} --}}
 
-            {{#if user}}
+            {{!-- {{#if user}} --}}
             <form class="m-0" id="logout-form" action="/auth/logout" method="POST">
                <button class="btn btn-outline-light">Logout</button>
             </form>
-
-            {{/if}}
+            {{!-- {{/if}} --}}
 
          </div>
       </div>

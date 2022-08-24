@@ -35,6 +35,9 @@ app.use("/auth", auth);
 const offer = require("./routes/offer.routes");
 app.use("/offer", offer);
 
+const page = require("./routes/page.routes");
+app.use("/page", page);
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
