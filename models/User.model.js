@@ -20,6 +20,7 @@ const userSchema = new Schema(
     },
     likes: [{ type: Schema.Types.ObjectId, ref: "Offer" }],
     reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
+    profileImage: { type: String },
   },
   {
     timestamps: true,

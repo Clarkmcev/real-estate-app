@@ -1,14 +1,12 @@
 <section class="container-list">
     <hr>
     <div class="row">
-        
-
         {{#each foundOffers}}
             <div class="col-md-4">
                 <article class="character">
                     <h2>{{name}}</h2>
                     <hr>
-                    <img src={{images}} style="width: 100px"> 
+                    <img src={{images}} style="width: 100px">
                     <p>Address: {{address}}</p>
                     <p>Land size: {{landSize}}</p>
                     <p>Price: {{price}}</p>
@@ -18,11 +16,11 @@
                     <a href="/offer/details/{{id}}">Details</a>
 
                         {{#unless isLiked}}
-                    <a href="/offer/like/{{id}}">Like</a>
+                    <a id ="liked" href="/offer/like/{{id}}">Like</a>
                         {{/unless}}
 
                         {{#if isLiked}}
-                    <a href="/offer/like/{{id}}">Unlike</a>
+                    <a id ="liked" href="/offer/like/{{id}}">Unlike</a>
                         {{/if}}
                 </article>
             </div>

@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const Offer = require("../models/Offer.model");
+const fileUploader = require("../config/cloudinary.config");
 
 // ℹ️ Handles password encryption
 const bcrypt = require("bcrypt");
@@ -151,6 +152,7 @@ router.post("/logout", (req, res) => {
 // Profile routes
 router.get("/user-profile", (req, res, next) => {
   const { _id } = req.session.currentUser;
+  console.log(req.session.currentUser.imageProfile);
   User.findById(_id)
     .populate("likes")
     .then((foundUser) => {
@@ -162,6 +164,7 @@ router.get("/user-profile", (req, res, next) => {
             username,
             offersByOwner,
             arrLikes,
+            user: req.session.currentUser,
           });
         } else {
           res.render("auth/user-profile", { user: req.session.user });
@@ -170,6 +173,22 @@ router.get("/user-profile", (req, res, next) => {
     })
     .catch((err) => console.log(err));
 });
+
+router.post(
+  "/user-profile",
+  fileUploader.single("profile"),
+  (req, res, next) => {
+    console.log(req.file);
+    const { _id } = req.session.currentUser;
+    User.findByIdAndUpdate(_id, { profileImage: req.file.path })
+      .then((updatedUser) => {
+        console.log(updatedUser);
+        req.session.currentUser.imageProfile = req.file.path;
+        res.redirect("/auth/user-profile");
+      })
+      .catch((err) => console.log(err));
+  }
+);
 
 // Remove a liked offer
 router.get("/remove/:id", (req, res, next) => {
