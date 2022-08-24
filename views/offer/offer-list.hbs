@@ -1,6 +1,8 @@
 <section class="container-list">
     <hr>
     <div class="row">
+        
+
         {{#each foundOffers}}
             <div class="col-md-4">
                 <article class="character">
@@ -11,7 +13,17 @@
                     <p>Land size: {{landSize}}</p>
                     <p>Price: {{price}}</p>
                     <p>Date: {{date}}</p>
+                    <p> Posted by <a href="/page/{{owner._id}}">{{owner.username}}</a></p>
+                    <p>{{isLiked}}</p>
                     <a href="/offer/details/{{id}}">Details</a>
+
+                        {{#unless isLiked}}
+                    <a href="/offer/like/{{id}}">Like</a>
+                        {{/unless}}
+
+                        {{#if isLiked}}
+                    <a href="/offer/like/{{id}}">Unlike</a>
+                        {{/if}}
                 </article>
             </div>
         {{/each}}
