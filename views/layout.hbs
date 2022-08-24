@@ -29,7 +29,9 @@
             </a>
          </div>
 
-         <a style="color: #E1D89F;" class="navbar-brand px-2" href="/">Real Estate</a>
+         <a style="color: #E1D89F;" class="navbar-brand px-2" href="/">Proprio</a>
+
+
 
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,35 +58,31 @@
                <li class="nav-item">
                   <a style="color: #E1D89F;" class="nav-link" href="/offer/create-sale">New Sale Offer</a>
                </li>
-               {{!-- {{#if user}} --}}
+               {{#if user}}
                <li class="nav-item">
                   <a style="color: #E1D89F;" class="nav-link" href="/auth/user-profile">My Profile</a>
                </li>
-               {{!-- {{/if}} --}}
+               {{/if}}
 
             </ul>
 
             {{#unless user}}
-            <a style="color: #E1D89F ;" " href=" /auth/login" class="btn btn-outline-$yellow-600 mx-1"
+            <a style="color: #E1D89F ;" href=" /auth/login" class="btn btn-outline-$yellow-600 mx-1"
                role="button">Login</a>
-            <a style="color: #E1D89F ;" "  href=" /auth/signup" class="btn btn-outline-$yellow-600 mx-1"
+            <a style="color: #E1D89F ;" href=" /auth/signup" class="btn btn-outline-$yellow-600 mx-1"
                role="button">Register</a>
             {{/unless}}
 
-
-
-            </ul>
-
-
-
-            {{!-- {{#if user}} --}}
+            {{!-- <a style="color: #E1D89F ;" href=" /auth/signup" class="btn btn-outline-$yellow-600 mx-1"
+               role="button">Register</a> --}}
+            {{#if user}}
             <form class="m-0" id="logout-form" action="/auth/logout" method="POST">
                <button class="btn btn-outline-#E1D89F">Logout</button>
             </form>
 
 
 
-            {{!-- {{/if}} --}}
+            {{/if}}
 
             {{!-- {{/if}} --}}
 

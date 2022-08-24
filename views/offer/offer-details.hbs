@@ -1,21 +1,40 @@
-<section class="container-details">
-    <h1>Offer detail</h1>
-    <hr>
-    <div class="row">
-            <div class="col-md-4">
-                <article class="character">
-                    <img src="{{foundOffer.images}}" style="width: 500px">
-                    <h2>{{foundOffer.name}}</h2>
-                    <hr>
-                    <p>Address: {{foundOffer.address}}</p>
-                    <p>Land size: {{foundOffer.landSize}}</p>
-                    <p>Price: {{foundOffer.price}}</p>
-                    <p>Toilets: {{foundOffer.toilets}}</p>
-                    <p>Garage spaces: {{foundOffer.garages}}</p>
-                    <p>Living areas: {{foundOffer.livingAreas}}</p>
-                    <p>Description: {{foundOffer.description}}</p>
-                    <p>Date: {{foundOffer.date}}</p>
-                </article>
+<div class="container">
+    <main class="mt-5 pt-4">
+        <div class="container dark-grey-text mt-5 px-4 bg- bg-opacity-50">
+            <div class="row wow fadeIn">
+                <div class="col-md-6 my-4">
+                    <img src="{{foundOffer.images}}" class="img-fluid w-100 rounded-5" />
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="p-4">
+                        <div class="mb-3">
+                            <h2>{{foundOffer.title}}</h2>
+                        </div>
+                        <div class="lead">
+                            <p style="color: #E1D89F;"><strong style="font-size:115%;">Address:
+                                </strong>{{foundOffer.address}}</p>
+                            <p style="color: #E1D89F;"><strong style="font-size:115%;">Land size:</strong>
+                                {{foundOffer.landSize}}</p>
+                            <p style="color: #E1D89F;"><strong style="font-size:115%;">Price:</strong>
+                                {{foundOffer.price}}</p>
+                            <p style="color: #E1D89F;"><strong style="font-size:115%;">Toilets:</strong>
+                                {{foundOffer.toilets}}</p>
+                            <p style="color: #E1D89F;"><strong style="font-size:115%;">Garage spaces:</strong>
+                                {{foundOffer.garages}}</p>
+                            <p style="color: #E1D89F;"><strong style="font-size:115%;">Living areas:</strong>
+                                {{foundOffer.livingAreas}}</p>
+                            <p style="color: #E1D89F;"><strong style="font-size:115%;">Date:</strong>{{foundOffer.date}}
+                            </p>
+                        </div>
+                        <p class="lead font-weight-bold" style="color: #E1D89F;"><strong style="font-size:115%;">
+                                Description:</strong></p>
+                        <p style="color: #E1D89F; font-size:105%;">{{foundOffer.description}}</p>
+                        <a href="/offer/details"
+                            class="btn btn-dark-moon btn-outline-light btn-rounded text-white my-25 px-4"
+                            role="button">>Back to Offers</a>
+                    </div>
+                </div>
             </div>
-    </div>
-</section>
+        </div>
+    </main>
+</div>
