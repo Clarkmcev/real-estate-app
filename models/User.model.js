@@ -18,6 +18,8 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password is required."],
     },
+    fullName: { type: String, required: true },
+    description: { type: String },
     likes: [{ type: Schema.Types.ObjectId, ref: "Offer" }],
     reviews: [{ type: Schema.Types.ObjectId, ref: "Review" }],
     profileImage: { type: String },

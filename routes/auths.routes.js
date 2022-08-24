@@ -26,7 +26,7 @@ router.get("/signup", (req, res, next) => {
 });
 
 router.post("/signup", (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, fullName, password } = req.body;
   if (!email) {
     return res.status(400).render("auth/signup", {
       errorMessage: "Please provide your email.",
@@ -63,6 +63,7 @@ router.post("/signup", (req, res, next) => {
         return User.create({
           username: username,
           email: email,
+          fullName,
           passwordHash: hashedPassword,
         });
       })
@@ -199,6 +200,14 @@ router.get("/remove/:id", (req, res, next) => {
       res.render("auth/user-profile", { user: req.session.user });
     })
     .catch((err) => console.log(err));
+});
+
+// Settings route
+router.get("/settings", (req, res, next) => {
+  let settings = {};
+  settings.isClicked = "ye";
+  console.log(settings);
+  res.render("auth/user-profile", { user: req.session.user });
 });
 
 module.exports = router;

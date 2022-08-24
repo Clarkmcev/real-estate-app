@@ -1,12 +1,9 @@
 <div class="container">
-
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-
-                <h2 style="color: #E1D89F ; font-size:1.1cm ; position:relative" class="fw-bold mb-2">New offer</h2>
+                <h2 style="color: #E1D89F ; font-size:1.1cm ; position:relative" class="fw-bold mb-2">Edit offer</h2>
                 <form action="/offer/edit/{{foundOffer.id}}" method="POST" enctype="multipart/form-data">
-
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
@@ -14,69 +11,54 @@
                                     value="{{foundOffer.type}}">
                                     <option style="color:black ;" value="flat">Flat</option>
                                     <option value="house">House</option>
-
                                 </select>
-
-
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F; " type="text" name="name"
-                                    placeholder="Title of the Propertie" value="{{foundOffer.name}}"
+                                    placeholder="Title of the property" value="{{foundOffer.name}}"
                                     class="form-control" required />
-
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F; " type="text" name="address"
                                     placeholder="Address" value="{{foundOffer.address}}" class="form-control"
                                     required />
-
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F; " type="number" name="landSize"
                                     placeholder="500 m^2" value="{{foundOffer.landSize}}">m2
                                 class="form-control" required />
-
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F; " type="file" name="image-cover"
                                     placeholder="image" class="form-control-file" required />
-
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F; " type="number" name="price"
                                     placeholder="price" value="{{foundOffer.price}}">USD
                                 class="form-control" required />
-
                             </div>
                         </div>
                     </div>
-
-
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
@@ -86,14 +68,10 @@
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-
                                 </select>
-
-
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
@@ -103,33 +81,23 @@
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-
                                 </select>
-
-
                             </div>
                         </div>
                     </div>
-
-
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
-
                                 <select style="background-color: #E1D89F;" name="bedrooms" id="bedrooms"
                                     value="{{foundOffer.bedrooms}}">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
-
                                 </select>
-
-
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
@@ -140,14 +108,11 @@
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
-
                                     </select>
                                 </label>
-
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
@@ -158,15 +123,11 @@
                                         <option value="2">2</option>
                                         <option value="3">3</option>
                                         <option value="4">4</option>
-
                                     </select>
                                 </label>
-
                             </div>
                         </div>
                     </div>
-
-
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <div class="form-outline">
@@ -178,19 +139,12 @@
                             </div>
                         </div>
                     </div>
-
-
                     <input style="color: #E1D89F ; " type="submit" value="Edit offer" class="btn-dark btn">
                     {{#if errorMessage}}
                     <p class="error">{{errorMessage}}</p>
-                    {{/if}
-
-
-
+                    {{/if}}
                 </form>
-
             </div>
         </div>
     </div>
-
 </div>
