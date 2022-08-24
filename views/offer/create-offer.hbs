@@ -2,83 +2,165 @@
 
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-lg-8">
 
-                <h1>New offer</h1>
-
-                <hr>
-
+                <h2 style="color: E1D89F ; position:relative" class="fw-bold mb-4">New offer</h2>
                 <form action="/offer/create" method="POST" enctype="multipart/form-data">
 
-                    <label for="types">Type :</label>
-                        <select name="type" id="type">
-                        <option value="flat">Flat</option>
-                        <option value="house">House</option>
+                    <div class="row">
+                        <div class="col-md-8 mb-3">
+                            <div class="form-outline">
+                                {{!-- <label for="types">Type :</label> --}}
+                                <select style="background-color: #E1D89F;" name="type" id="type">
+                                    <option style="color:black ;" value="flat">Flat</option>
+                                    <option value="house">House</option>
 
-                        </select>
-                    <label>
+                                </select>
 
-                    <label>
-                        Name: <input type="text" name="name" placeholder="Name">
-                    </label>
 
-                    <label>
-                        Address: <input type="text" name="address" placeholder="Address">
-                    </label>
+                            </div>
+                        </div>
+                    </div>
 
-                    <label>
-                        Land size: <input type="number" name="landSize" placeholder="500 m^2">m2
-                    </label>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="form-outline">
+                                <input style="background-color: #E1D89F; " type="text" name="name"
+                                    placeholder="Title of the Propertie" class="form-control" required />
 
-                    <label>
-                        Image: <input type="file" name="image-cover" class="form-control-file" placeholder="image">
-                    </label>
+                            </div>
+                        </div>
+                    </div>
 
-                    <label>
-                        Price: <input type="number" name="price" placeholder="price">USD
-                    </label>
 
-                    <label for="toilets">Toilets :
-                        <select name="toilets" id="toilets">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        </select>
-                    </label>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-outline">
+                                <input style="background-color: #E1D89F;" type="text" name="address"
+                                    placeholder="Address" class=" form-control" required />
+                                {{!-- <label class="form-label" for="form3Example1">Address</label> --}}
+                            </div>
+                        </div>
 
-                    <label for="bedrooms">Bedrooms :
-                        <select name="bedrooms" id="bedrooms">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        </select>
-                    </label>
+                    </div>
 
-                    <label for="garages">Garage spaces :
-                        <select name="garages" id="garages">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        </select>
-                    </label>
 
-                    <label for="livingRooms">Living areas :
-                        <select name="livingAreas" id="livingAreas">
-                        <option value="1">1</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        </select>
-                    </label>
 
-                    <label>
-                        Description: <input type="text" name="description" placeholder="Description">
-                    </label>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-outline">
+                                <input style="background-color: #E1D89F;" type="number" name="landSize"
+                                    placeholder=" LandSize exp.500 m^2" class="form-control" required />
 
-                    <input type="submit" value="Create offer" class="btn-dark btn">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-outline">
+                                <input style="background-color: #E1D89F;" type="file" name="image-cover"
+                                    placeholder="Image" class=" form-control-file" required />
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-outline">
+                                <input style="background-color: #E1D89F;" type="number" name="price"
+                                    placeholder=" Price $" class="form-control" required />
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-9 mb-3">
+                            <div class="form-outline">
+                                <label style="color: #E1D89F ;font-size:larger ; " for="toilets">Toilets :</label>
+                                <select style="background-color: #E1D89F;" name="toilets" id="toilets">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+
+                                </select>
+                                <label>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-9 mb-3">
+                            <div class="form-outline">
+                                <label style="color: #E1D89F ; font-size:larger ; " for="bedrooms">Bedrooms :</label>
+                                <select style="background-color: #E1D89F;" name="bedrooms" id="bedrooms">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+
+                                </select>
+                                <label>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-9 mb-3">
+                            <div class="form-outline">
+                                <label style="color: #E1D89F ; font-size:larger ;  " font-size for="garages">Garages
+                                    :</label>
+                                <select style="background-color: #E1D89F;" name="garages" id="garages">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+
+                                </select>
+                                <label>
+
+                            </div>
+                        </div>
+
+                        <div class="col-md-9 mb-3">
+                            <div class="form-outline">
+                                <label style="color: #E1D89F ; font-size:larger ; " for="livingRooms">Living Areas
+                                    :</label>
+                                <select style="background-color: #E1D89F;" " name=" livingAreas" id="livingAreas">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+
+                                </select>
+                                <label>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="form-outline">
+                                <input style="background-color: #E1D89F;" type="text" name="description"
+                                    placeholder=" Description" class="form-control" required />
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <input style="color: #E1D89F ; " type="submit" value="Create offer" class="btn-dark btn">
                     {{#if errorMessage}}
                     <p class="error">{{errorMessage}}</p>
                     {{/if}}

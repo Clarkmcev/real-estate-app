@@ -16,7 +16,7 @@
    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
 </head>
 
-<body class="d-flex flex-column h-100" style="background-color:#d7d5d5">
+<body class="d-flex flex-column h-100" style="background-color:#3F4E4F">
 
 
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
@@ -29,7 +29,7 @@
             </a>
          </div>
 
-         <a class="navbar-brand px-2" href="/">Real Estate</a>
+         <a style="color: #E1D89F;" class="navbar-brand px-2" href="/">Real Estate</a>
 
          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,33 +37,41 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+               {{!-- {{#if user}} --}}
+               <li class="nav-item">
+                  <a style="color: #E1D89F;" class="nav-link active" aria-current="page" href="/">Home</a>
+               </li>
+
+               {{!-- {{/if}} --}}
+
+
+               <li class="nav-item">
+                  <a style="color: #E1D89F;" class="nav-link" href="/offer/list">Offers</a>
+               </li>
+
+               <li class="nav-item">
+                  <a style="color: #E1D89F;" class="nav-link" href="/offer/create">New offer</a>
+               </li>
                {{#if user}}
                <li class="nav-item">
-                  <a class="nav-link" href="/auth/user-profile">My Profile</a>
+                  <a style="color: #E1D89F;" class="nav-link" href="/auth/user-profile">My Profile</a>
                </li>
                {{/if}}
-               <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/">Home</a>
-               </li>
 
-               <li class="nav-item">
-                  <a class="nav-link" href="/offer/list">Offers</a>
-               </li>
-
-               <li class="nav-item">
-                  <a class="nav-link" href="/offer/create">New offer</a>
-               </li>
             </ul>
 
             {{#unless user}}
-            <a href="/auth/login" class="btn btn-outline-light mx-1" role="button">Login</a>
-            <a href="/auth/signup" class="btn btn-outline-light mx-1" role="button">Register</a>
+            <a style="color: #E1D89F ;" " href=" /auth/login" class="btn btn-outline-$yellow-600 mx-1"
+               role="button">Login</a>
+            <a style="color: #E1D89F ;" "  href=" /auth/signup" class="btn btn-outline-$yellow-600 mx-1"
+               role="button">Register</a>
             {{/unless}}
 
             {{#if user}}
             <form class="m-0" id="logout-form" action="/auth/logout" method="POST">
-               <button class="btn btn-outline-light">Logout</button>
+               <button class="btn btn-outline-#E1D89F">Logout</button>
             </form>
+
 
             {{/if}}
 
@@ -78,7 +86,7 @@
 
    <footer class="footer mt-auto py-4 bg-dark bg-gradient bg-opacity-80 text-white-50">
       <div class="container text-center">
-         <small> Created by Clark & Ali</small>
+         <small style="color: #E1D89F ; font-size:larger ;"> Created by Clark & Ali</small>
       </div>
    </footer>
 
