@@ -1,98 +1,9 @@
-{{!-- <div class="container">
-    <main class="mt-5 pt-4">
-        <div class="container dark-grey-text mt-5 px-4 bg-light bg-opacity-50">
-            <div class="row wow fadeIn">
-                {{#if user.imageProfile}}
-                <div class="col-md-6 mb-4">
-                    <img src="{{user.imageProfile}}" class="img-fluid">
-                </div>
-                {{/if}}
-                {{#unless user.imageProfile}}
-                <div class="col-md-6 mb-4">
-                    <img src="/images/l60Hf.png" class="img-fluid">
-                </div>
-                {{/unless}}
-                {{#unless user.imageProfile}}
-                <form action="/auth/user-profile" method="post" enctype="multipart/form-data">
-                    <div class="form-control">
-                        <label class="header">Profile Photo:</label>
-                        <input id="image" type="file" name="profile" placeholder="Photo">
-                    </div>
-                    <input type="submit" class="register" value="Upload">
-                </form>
-                {{/unless}}
-                <div class="col-md-6 mb-4">
-                    <div class="p-4">
-                        <div class="mb-3">
-                            <h2 class="pt-3">{{user.fullName}}</h2>
-                            <div><a href="" mailto>{{user.email}}</a></div>
-                            {{#if offersByOwner}}
-                            <hr>
-                            <div>Your offers</div>
-                            <section class="container-list">
-                                <div class="row">
-                                    {{#each offersByOwner}}
-                                    <div class="col-md-4">
-                                        <article class="character">
-                                            <h2>{{name}}</h2>
-                                            <hr>
-                                            <img src={{images}} style="width: 100px">
-                                            <p>Address: {{address}}</p>
-                                            <p>Land size: {{landSize}}</p>
-                                            <p>Price: {{price}}</p>
-                                            <p>Date: {{date}}</p>
-                                            <a href="/offer/details/{{id}}">Details</a>
-                                            <a href="/offer/edit/{{id}}">Edit</a>
-                                        </article>
-                                    </div>
-                                    {{/each}}
-                                </div>
-                            </section>
-                        </div>
-                        {{/if}}
-                        {{#if arrLikes}}
-                        <div>Your likes</div>
-                        <section class="container-list">
-                            <hr>
-                            <div class="row">
-                                {{#each arrLikes}}
-                                <div class="col-md-4">
-                                    <article class="character">
-                                        <h2>{{name}}</h2>
-                                        <hr>
-                                        <img src={{images}} style="width: 100px">
-                                        <p>Address: {{address}}</p>
-                                        <p>Land size: {{landSize}}</p>
-                                        <p>Price: {{price}}</p>
-                                        <p>Date: {{date}}</p>
-                                        <a href="/offer/details/{{id}}">Details</a>
-                                        <a href="/offer/remove/{{id}}">Remove</a>
-                                    </article>
-                                </div>
-                                {{/each}}
-                            </div>
-                        </section>
-                    </div>
-                    {{/if}}
-                    <a href="/auth/settings">Edit</a>
-                </div>
-            </div>
-            {{!-- {{#if settings}}
-            <div>yes</div>
-            {{/if}} --}}
-            {{!--
-        </div>
-</div>
-</main>
-</div> --}}
-
-
 <div class="container">
     <main class="mt-5 pt-4">
         <div class="container dark-grey-text mt-5 px-4 bg- bg-opacity-50">
             <div class="row wow fadeIn">
                 <div class="col-md-4 ">
-                    <img src="/images/user-icon.png" class="img-fluid">
+                    <img src="/images/l60Hf.png" class="img-fluid">
                 </div>
                 {{#if user.imageProfile}}
                 <div class="col-md-2 ">
