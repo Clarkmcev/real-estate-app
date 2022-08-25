@@ -151,23 +151,9 @@ router.post("/logout", (req, res) => {
   });
 });
 
-// router.get("/logout", (req, res) => {
-//   res.clearCookie("connect.sid");
-//   req.session.destroy((err) => {
-//     if (err) {
-//       return res
-//         .status(500)
-//         .render("auth/logout", { errorMessage: err.message });
-//     }
-//     res.redirect("/login");
-//   });
-// });
-
 // Profile routes
 router.get("/user-profile", (req, res, next) => {
   const { _id } = req.session.currentUser;
-
-  console.log(req.session.currentUser.imageProfile);
   User.findById(_id)
     .populate("likes")
     .then((foundUser) => {
@@ -181,9 +167,12 @@ router.get("/user-profile", (req, res, next) => {
             offersByOwner,
             arrLikes,
             user: foundUser,
+            userNavigation: req.session.currentUser,
           });
         } else {
-          res.render("auth/user-profile", { user: foundUser });
+          res.render("auth/user-profile", {
+            user: foundUser,
+          });
         }
       });
     })

@@ -26,14 +26,19 @@ router.get("/list", async (req, res, next) => {
         });
       });
       // console.log(foundOffers);
-      res.render("offer/offer-list", { foundOffers });
+      res.render("offer/offer-list", {
+        foundOffers,
+        userNavigation: req.session.currentUser,
+      });
     })
     .catch((err) => console.error(err));
 });
 
 // NEW SALE
 router.get("/create-sale", (req, res, next) => {
-  res.render("offer/create-offer-sale");
+  res.render("offer/create-offer-sale", {
+    userNavigation: req.session.currentUser,
+  });
 });
 
 router.post("/create", fileUploader.single("image-cover"), (req, res, next) => {
@@ -73,7 +78,9 @@ router.post("/create", fileUploader.single("image-cover"), (req, res, next) => {
 
 // NEW OFFER
 router.get("/create-rent", (req, res, next) => {
-  res.render("offer/create-offer-rent");
+  res.render("offer/create-offer-rent", {
+    userNavigation: req.session.currentUser,
+  });
 });
 
 router.post(
@@ -130,7 +137,10 @@ router.get("/details/:id", async (req, res, next) => {
           foundOffer.isLiked = true;
         }
       });
-      res.render("offer/offer-details", { foundOffer });
+      res.render("offer/offer-details", {
+        foundOffer,
+        userNavigation: req.session.currentUser,
+      });
     })
     .catch((err) => console.log(err));
 });
@@ -162,7 +172,10 @@ router.get("/edit/:id", (req, res, next) => {
   const id = req.params;
   Offer.findByIdAndUpdate(id.id)
     .then((foundOffer) => {
-      res.render("offer/edit-offer", { foundOffer });
+      res.render("offer/edit-offer", {
+        foundOffer,
+        userNavigation: req.session.currentUser,
+      });
     })
     .catch((err) => console.log(err));
 });
@@ -222,14 +235,18 @@ router.get("/like/:id", async (req, res, next) => {
         User.findByIdAndUpdate(_id, { $pull: { likes: id } })
           .then((user) => {
             console.log("yo");
-            res.redirect("/offer/list");
+            res.redirect("/offer/list", {
+              userNavigation: req.session.currentUser,
+            });
           })
           .catch((err) => console.log(err));
       } else {
         User.findByIdAndUpdate(_id, { $push: { likes: id } })
           .then((user) => {
             console.log("here");
-            res.redirect("/offer/list");
+            res.redirect("/offer/list", {
+              userNavigation: req.session.currentUser,
+            });
           })
           .catch((err) => console.log(err));
       }
@@ -245,7 +262,11 @@ router.get("/review/:id", (req, res, next) => {
     .populate("reviews")
     .then((foundRoom) => {
       let arr = foundRoom.reviews;
-      res.render("room/create-review", { arr, foundRoom });
+      res.render("room/create-review", {
+        arr,
+        foundRoom,
+        userNavigation: req.session.currentUser,
+      });
     })
     .catch((err) => console.log(err));
 });
@@ -254,7 +275,7 @@ router.get("/review/:id", (req, res, next) => {
 router.get("/page/:id", (req, res, next) => {
   const { id } = req.params;
 
-  res.render("/profile");
+  res.render("/profile", { userNavigation: req.session.currentUser });
 });
 
 // Remove a liked offer
@@ -263,7 +284,9 @@ router.get("/remove/:id", (req, res, next) => {
   const { id } = req.params;
   User.findByIdAndUpdate(_id, { $pull: { likes: id } })
     .then((user) => {
-      res.redirect("/auth/user-profile");
+      res.redirect("/auth/user-profile", {
+        userNavigation: req.session.currentUser,
+      });
     })
     .catch((err) => console.log(err));
 });
