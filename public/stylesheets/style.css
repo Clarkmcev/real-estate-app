@@ -79,6 +79,7 @@ h1 {
 .info {
   margin-top: 60px;
   margin-left: 100px;
+  margin-bottom: 50px;
 }
 
 .big {
@@ -87,6 +88,17 @@ h1 {
   padding: 10px;
 }
 
+
 hr, h1 {
   color:#E1D89F;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.colp {
+  height: 250px;
 }
