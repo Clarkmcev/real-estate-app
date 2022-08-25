@@ -116,14 +116,46 @@ router.post(
 );
 
 // Details view
-router.get("/details/:id", (req, res, next) => {
+router.get("/details/:id", async (req, res, next) => {
+  const { _id, username } = req.session.currentUser;
   const id = req.params;
+
+  const currentUser = await User.findById(_id);
+
   Offer.findById(id.id)
+    .populate("owner")
     .then((foundOffer) => {
+      currentUser.likes.forEach((aLike) => {
+        if (aLike.toString() === foundOffer._id.toString()) {
+          foundOffer.isLiked = true;
+        }
+      });
       res.render("offer/offer-details", { foundOffer });
     })
     .catch((err) => console.log(err));
 });
+
+// router.get("/list", async (req, res, next) => {
+//   const { _id, username } = req.session.currentUser;
+//   let postName = [];
+
+//   const currentUser = await User.findById(_id);
+
+//   Offer.find()
+//     .populate("owner")
+//     .then((foundOffers) => {
+//       foundOffers.map((offer) => {
+//         currentUser.likes.forEach((aLike) => {
+//           if (aLike.toString() === offer._id.toString()) {
+//             offer.isLiked = true;
+//           }
+//         });
+//       });
+//       // console.log(foundOffers);
+//       res.render("offer/offer-list", { foundOffers });
+//     })
+//     .catch((err) => console.error(err));
+// });
 
 // Edit view
 router.get("/edit/:id", (req, res, next) => {

@@ -3,11 +3,11 @@ const Offer = require("../models/Offer.model");
 const fileUploader = require("../config/cloudinary.config");
 const Review = require("../models/Review.model");
 const User = require("../models/User.model");
+const UserModel = require("../models/User.model");
 
 // Page of a user
 router.get("/:id", (req, res, next) => {
   const { id } = req.params;
-
   User.findById(id)
     .populate("reviews")
     .populate({
@@ -18,6 +18,7 @@ router.get("/:id", (req, res, next) => {
       },
     })
     .then((user) => {
+      console.log(user);
       res.render("page/page-profile", { user });
     })
     .catch((err) => console.log(err));
@@ -32,7 +33,6 @@ router.post("/:id", async (req, res, next) => {
       User.findByIdAndUpdate(id, { $push: { reviews: newReview } })
         .populate("reviews")
         .then((user) => {
-          console.log(user);
           res.render("page/page-profile", { user });
         })
         .catch((err) => console.log(err));

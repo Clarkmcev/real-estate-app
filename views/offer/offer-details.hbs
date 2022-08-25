@@ -8,8 +8,12 @@
                 <div class="col-md-6 mb-4">
                     <div class="p-4">
                         <div class="mb-3">
+
                             <p style="color: #E1D89F;"><strong style="font-size:245%;">{{foundOffer.name}}
                                 </strong></p>
+
+
+
 
                         </div>
                         <div class="lead">
@@ -29,13 +33,20 @@
                                 {{foundOffer.bedrooms}}</p>
                             <p style="color: #E1D89F;"><strong style="font-size:115%;">Date:</strong>{{foundOffer.date}}
                             </p>
+                            <p> Posted by <a href="/page/{{foundOffer.owner._id}}">{{foundOffer.owner.username}}</a></p>
                         </div>
                         <p class="lead font-weight-bold" style="color: #E1D89F;"><strong style="font-size:115%;">
                                 Description:</strong></p>
                         <p style="color: #E1D89F; font-size:105%;">{{foundOffer.description}}</p>
-                        <a href="/offer/details"
+                        <a href="/offer/list"
                             class="btn btn-dark-moon btn-outline-light btn-rounded text-white my-25 px-4"
                             role="button">>Back to Offers</a>
+                        {{#unless isLiked}}
+                        <a id="liked" href="/offer/like/{{foundOffer._id}}">Like</a>
+                        {{/unless}}
+                        {{#if isLiked}}
+                        <a id="liked" href="/offer/like/{{foundOffer._id}}">Unlike</a>
+                        {{/if}}
                     </div>
                 </div>
             </div>

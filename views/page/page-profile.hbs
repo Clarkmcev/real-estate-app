@@ -7,18 +7,17 @@
                     <img src="{{user.profileImage}}" class="img-fluid">
                 </div>
                 {{/if}}
-
                 {{#unless user.profileImage}}
                 <div class="col-md-6 mb-4">
                     <img src="/images/l60Hf.png" class="img-fluid">
                 </div>
                 {{/unless}}
-
                 <div class="col-md-6 mb-4">
                     <div class="p-4">
                         <div class="mb-3">
                             <p class="text font-italic"></p>
-                            <h2 class="pt-3">{{user.username}}</h2>
+                            <h2 class="pt-3">{{user.fullName}}</h2>
+                            <div><a href="" mailto>{{user.email}}</a></div>
                         </div>
                     </div>
                     {{#each user.reviews}}
@@ -26,7 +25,6 @@
                         <li>{{this.comment}} -by {{this.user.username}}</li>
                     </lu>
                     {{/each}}
-
                         <form action="/page/{{user.id}}" method="POST">
                         <label> Write a review
                         <input type="text" name="comment"/>
