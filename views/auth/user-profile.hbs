@@ -2,26 +2,16 @@
     <main class="mt-5 pt-4">
         <div class="container dark-grey-text mt-5 px-4 bg-light bg-opacity-50">
             <div class="row wow fadeIn">
-                {{#if user.imageProfile}}
+                {{#if user.profileImage}}
                 <div class="col-md-6 mb-4">
-                    <img src="{{user.imageProfile}}" class="img-fluid" style="border-radius: 200px">
+                    <img src="{{user.profileImage}}" class="img-fluid" style="border-radius: 200px">
                 </div>
                 {{/if}}
-                {{#unless user.imageProfile}}
+                {{#unless user.profileImage}}
                 <div class="col-md-6 mb-4">
                     <img src="/images/l60Hf.png" class="img-fluid" style="border-radius: 200px">
                 </div>
                 {{/unless}}
-                {{!-- {{#unless user.imageProfile}}
-                <form action="/auth/user-profile" method="post" enctype="multipart/form-data">
-                    <div class="form-control">
-                        <label class="header">Profile Photo:</label>
-                        <input id="image" type="file" name="profile" placeholder="Photo">
-                    </div>
-                    <input type="submit" class="register" value="Upload">
-                </form>
-                {{/unless}} --}}
-
                 {{#if user.settings}}
                 <form action="/auth/complete-profile" method="post" enctype="multipart/form-data">
                     <div class="form-control">
@@ -47,7 +37,6 @@
                     <input type="submit" class="register" value="Complete profile">
                 </form>
                 {{/if}}
-
                 <a href="/auth/settings">Edit profile</a>
                 <div class="col-md-6 mb-4">
                     <div class="p-4">
