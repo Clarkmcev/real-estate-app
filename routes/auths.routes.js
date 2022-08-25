@@ -215,7 +215,10 @@ router.get("/settings", async (req, res, next) => {
 
   if (user.settings) {
     foundUser.settings = false;
-    res.render("auth/user-profile", { user: foundUser });
+    res.render("auth/user-profile", {
+      user: foundUser,
+      userNavigation: req.session.currentUser,
+    });
   } else {
     foundUser.settings = true;
     res.render("auth/user-profile", { user: foundUser });

@@ -1,129 +1,126 @@
-<div class="container ">
-    <main class="mt-5 pt-4 ">
-        <div>
-
-
-            <div class="container dark-grey-text mt-5 px-4 bg- bg-opacity-50 test">
-                <div class="row wow fadeIn">
-                    {{#if user.profileImage}}
-                    <div class="col-md-6 mb-4">
-                        <img src="{{user.profileImage}}" class="img-fluid" style="border-radius: 200px">
-                    </div>
-                    {{/if}}
-                    {{#unless user.profileImage}}
-                    <div class="col-md-6 mb-4">
-                        <div class="p-4">
-                            <img src="/images/l60Hf.png" class="img-fluid" style="border-radius: 200px">
-                        </div>
-                        {{/unless}}
-                        {{#if user.settings}}
-                        <form action="/auth/complete-profile" method="post" enctype="multipart/form-data"
-                            style={display: none;}>
-                            <div class="form-control test1">
-                                <label class="header">Profile Photo :</label>
-                                <input id="test1" type="file" name="profileImage" placeholder="Photo">
-                            </div>
-                            <div class="form-control test1">
-                                <label class="header">Info :</label>
-                                <input id="info" type="text" name="info" placeholder="Description"
-                                    value="{{user.info}}">
-                            </div>
-                            <div class="form-control test1">
-                                <label class="header">City :</label>
-                                <input id="city" type="text" name="city" placeholder="City" value="{{user.city}}">
-                            </div>
-                            <div class="form-control test1">
-                                <label class="header">Postcode :</label>
-                                <input id="postcode" type="text" name="postcode" placeholder="Postcode"
-                                    value="{{user.postcode}}">
-                            </div>
-                            <div class=" form-control test1 " id="">
-                                <label class="header">Number :</label>
-                                <input id="phoneNumber" type="text" name="phoneNumber" placeholder="Phone number"
-                                    value="{{user.phoneNumber}}">
-                            </div>
-                            <a href="/auth/settings" class="submit  test3 " role="button">Complete
-                                Profile</a>
-                            {{!-- <button type="submit" value="">Complete profile</button> --}}
-
-                        </form>
-                        {{/if}}
-
-                    </div>
-                    <div>
-                        <div class="col-md-6 mb-4">
-                            <div class="p-2">
-                                <div class="mb-3">
-                                    <h2 class="pt-3">{{user.fullName}}</h2>
-                                    <div><a style=" color:#E1D89F" ; href="" mailto>{{user.email}}</a></div>
-                                    <h3 class="pt-3">{{user.info}}</h3>
-                                    <h3 class="pt-3">{{user.city}}</h3>
-                                    <h3 class="pt-3">{{user.phoneNumber}}</h3>
-                                    <h3 class="pt-3">{{user.postcode}}</h3>
-                                    <a href="/auth/settings" class="btn  test3 " role="button">Edit
-                                        Profile</a>
-                                    {{#if offersByOwner}}
-                                    <hr>
-                                    <div>Your offers</div>
-                                    <section class="container-list">
-                                        <div class="row">
-                                            {{#each offersByOwner}}
-                                            <div class="col-md-4">
-                                                <article class="character">
-                                                    <h2>{{name}}</h2>
-                                                    <hr>
-                                                    <img src={{images}} style="width: 100px">
-                                                    <a href="/offer/details/{{id}}"
-                                                        class="btn btn-dark-moon btn-outline-light btn-rounded text-white my-2 px-4"
-                                                        role="button">Details</a>
-                                                    <a href="/offer/edit/{{id}}"
-                                                        class="btn btn-dark-moon btn-outline-light btn-rounded text-white my-2 px-4"
-                                                        role="button">Edit</a>
-                                                </article>
-                                            </div>
-                                            {{/each}}
-                                        </div>
-                                    </section>
-                                </div>
-                                {{/if}}
-                                {{#if arrLikes}}
-                                <div class="mb-3">
-                                    <div class="p-3 py-5">
-                                        <div class="d-flex justify-content-between align-items-center experience">
-                                            <span>Your
-                                                likes
-                                        </div>
-                                        <section class="container-list">
-                                            <hr>
-                                            <div class="row">
-                                                {{#each arrLikes}}
-                                                <div class="col-md-4">
-                                                    <article class="character">
-                                                        <h2>{{name}}</h2>
-                                                        <hr>
-                                                        <img src={{images}} style="width: 100px">
-                                                        <div class="my-6">
-                                                            <a href="/offer/details/{{id}}"
-                                                                class="btn btn-dark-moon btn-outline-light btn-rounded text-white my-2 mx-3 px-3"
-                                                                role="button">Details</a>
-                                                            <a href="/offer/details/"
-                                                                class="btn btn-dark-moon btn-outline-light btn-rounded text-white my-2 mx-3 px-3"
-                                                                role="button">Remove</a>
-                                                        </div>
-                                                    </article>
-                                                </div>
-                                                {{/each}}
-                                            </div>
-                                        </section>
-                                    </div>
-                                    {{/if}}
-                                </div>
-
-
-                            </div>
-                        </div>
-                    </div>
+<div class="big">
+    <div class="info-user">
+        {{#if user.profileImage}}
+            <div class="profile">
+                <img src="{{user.profileImage}}" style="border-radius: 200px">
+            </div>
+        {{/if}}
+        {{#unless user.profileImage}}
+            <div>
+                <div class="profile">
+                    <img src="/images/l60Hf.png" class="img-fluid">
                 </div>
             </div>
+        {{/unless}}
+        <div class="info">
+            <h1>{{user.fullName}}</h1>
+            <p><a style="color:#E1D89F" ; href="" mailto>{{user.email}}</a></p>
+            <p>{{user.info}}</p>
+            <p>{{user.city}}</p>
+            <p>{{user.phoneNumber}}</p>
+            <p>{{user.postcode}}</p>
+            <a href="/auth/settings" class="btn" role="button">Edit profile</a>
+        </div>
+    </div>
+
+    {{#if user.settings}}
+    <form class="form1" action="/auth/complete-profile" method="post" enctype="multipart/form-data">
+            <div>
+                <label class="header">Profile Photo :</label>
+                <input id="test1" type="file" name="profileImage" placeholder="Photo">
+            </div>
+            <div>
+                <label class="header">Info :</label>
+                <input id="info" type="text" name="info" placeholder="Description"
+                    value="{{user.info}}">
+            </div>
+            <div>
+                <label class="header">City :</label>
+                <input id="city" type="text" name="city" placeholder="City" value="{{user.city}}">
+            </div>
+            <div>
+                <label class="header">Postcode :</label>
+                <input id="postcode" type="text" name="postcode" placeholder="Postcode"
+                    value="{{user.postcode}}">
+            </div>
+            <div>
+                <label class="header">Number :</label>
+                <input id="phoneNumber" type="text" name="phoneNumber" placeholder="Phone number"
+                    value="{{user.phoneNumber}}">
+            </div>
+            <input type="submit" class="submit " role="button" value="upload">
+        </form>
+    {{/if}}
+    {{!-- USER INFOs --}}
+    <div class="heads">
+        <h1>My offers</h1>
+    </div>
+    <hr>
+{{#if offersByOwner}}
+<div class="container">
+    <main>
+        <section class="pt-5 text-center container">
+            <div class="container">
+                <main>
+                    <div class="album pb-2 px-4   bg-opacity-50">
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4 mb-5">
+                                {{#each offersByOwner}}
+                                <div class="col">
+                                    <div class="card h-100 border-0 bg-dark bg-gradient text-light shadow-lg">
+                                        <img class="bd-placeholder-img card-img-top" width="100%" height="180"
+                                            src="{{images}}" role="img" aria-label="Placeholder: Thumbnail"
+                                            preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        <rect width="100%" height="100%" fill="#55595c"></rect></img>
+                                        <div class="card-body">
+                                            <h6 style="color: #E1D89F;" class=" card-text">{{name}}</h6>
+                                        </div>
+                                        <div class="text-center mb-3">
+                                            <a href="/offer/details/{{this._id}}" class=" btn btn-outline-" style="color: #E1D89F;" role=" button">See more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                </main>
+            </div>
+        </section>
     </main>
+</div>
+{{/if}}
+
+{{#if arrLikes}}
+<div class="container">
+    <main>
+        <section class="pt-5 text-center container">
+            <div class="container">
+                <main>
+                    <div class="album pb-2 px-4   bg-opacity-50">
+                        <div class="container">
+                            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4 mb-5">
+                                {{#each arrLikes}}
+                                <div class="col">
+                                    <div class="card h-100 border-0 bg-dark bg-gradient text-light shadow-lg">
+                                        <img class="bd-placeholder-img card-img-top" width="100%" height="180"
+                                            src="{{images}}" role="img" aria-label="Placeholder: Thumbnail"
+                                            preserveAspectRatio="xMidYMid slice" focusable="false">
+                                        <rect width="100%" height="100%" fill="#55595c"></rect></img>
+                                        <div class="card-body">
+                                            <h6 style="color: #E1D89F;" class=" card-text">{{this.name}}</h6>
+                                            <h6 style="color: #E1D89F;" class=" card-text">{{this.price}}</h6>
+                                        </div>
+                                        <div class="text-center mb-3">
+                                            <a href="/offer/details/{{this._id}}" class=" btn btn-outline-" style="color: #E1D89F;" role=" button">See more</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                </main>
+            </div>
+        </section>
+    </main>
+    {{/if}}
 </div>
