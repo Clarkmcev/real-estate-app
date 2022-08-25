@@ -13,6 +13,7 @@
       href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
 </head>
+
 <body class="d-flex flex-column h-100" style="background-color:#3F4E4F">
 
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark bg-gradient">
@@ -42,11 +43,11 @@
                <li class="nav-item">
                   <a style="color: #E1D89F;" class="nav-link" href="/offer/create-sale">New offer</a>
                </li>
-               {{#if user}}
+               {{!-- {{#if user}} --}}
                <li class="nav-item">
                   <a style="color: #E1D89F;" class="nav-link" href="/auth/user-profile">My profile</a>
                </li>
-               {{/if}}
+               {{!-- {{/if}} --}}
             </ul>
             {{#unless user}}
             <a style="color: #E1D89F ;" href=" /auth/login" class="btn btn-outline-$yellow-600 mx-1"
@@ -56,11 +57,11 @@
             {{/unless}}
             {{!-- <a style="color: #E1D89F ;" href=" /auth/signup" class="btn btn-outline-$yellow-600 mx-1"
                role="button">Register</a> --}}
-            {{#if user}}
+            {{!-- {{#if user}} --}}
             <form class="m-0" id="logout-form" action="/auth/logout" method="POST">
                <button class="btn btn-outline-#E1D89F">Logout</button>
             </form>
-            {{/if}}
+            {{!-- {{/if}} --}}
             {{!-- {{/if}} --}}
          </div>
       </div>
@@ -78,4 +79,5 @@
       crossorigin="anonymous"></script>
    <script src="/js/script.js"></script>
 </body>
+
 </html>
