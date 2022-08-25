@@ -1,6 +1,9 @@
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 
+const MONGO_URI =
+  process.env.MONGODB_URI || "mongodb://localhost/real-estate-app";
+
 module.exports = (app) => {
   app.use(
     session({
@@ -11,7 +14,7 @@ module.exports = (app) => {
         maxAge: 1000 * 60 * 60 * 24, // 24h
       },
       store: new MongoStore({
-        mongoUrl: "mongodb://localhost/real-estate-app",
+        mongoUrl: MONGO_URI,
         ttl: 60 * 60 * 24, // 60sec * 60min * 24h => 1 day
       }),
     })
