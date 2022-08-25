@@ -138,6 +138,7 @@ router.post("/login", (req, res, next) => {
     });
 });
 
+// Logout
 router.post("/logout", (req, res) => {
   res.clearCookie("connect.sid");
   req.session.destroy((err) => {
@@ -150,13 +151,27 @@ router.post("/logout", (req, res) => {
   });
 });
 
+// router.get("/logout", (req, res) => {
+//   res.clearCookie("connect.sid");
+//   req.session.destroy((err) => {
+//     if (err) {
+//       return res
+//         .status(500)
+//         .render("auth/logout", { errorMessage: err.message });
+//     }
+//     res.redirect("/login");
+//   });
+// });
+
 // Profile routes
 router.get("/user-profile", (req, res, next) => {
   const { _id } = req.session.currentUser;
+
   console.log(req.session.currentUser.imageProfile);
   User.findById(_id)
     .populate("likes")
     .then((foundUser) => {
+      console.log(foundUser);
       const arrLikes = foundUser.likes;
       Offer.find({ owner: _id }).then((offersByOwner) => {
         if (req.session.currentUser) {
@@ -165,10 +180,10 @@ router.get("/user-profile", (req, res, next) => {
             username,
             offersByOwner,
             arrLikes,
-            user: req.session.currentUser,
+            user: foundUser,
           });
         } else {
-          res.render("auth/user-profile", { user: req.session.currentUser });
+          res.render("auth/user-profile", { user: foundUser });
         }
       });
     })
@@ -201,15 +216,20 @@ router.get("/remove/:id", (req, res, next) => {
 });
 
 // Settings route
-router.get("/settings", (req, res, next) => {
-  const user = req.session.currentUser;
-  console.log(user);
+router.get("/settings", async (req, res, next) => {
+  const { _id } = req.session.currentUser;
+  console.log(_id);
+
+  const foundUser = await User.findById(_id);
+
+  console.log(foundUser);
+
   if (user.settings) {
-    user.settings = false;
-    res.render("auth/user-profile", { user });
+    foundUser.settings = false;
+    res.render("auth/user-profile", { user: foundUser });
   } else {
-    user.settings = true;
-    res.render("auth/user-profile", { user });
+    foundUser.settings = true;
+    res.render("auth/user-profile", { user: foundUser });
   }
 });
 
