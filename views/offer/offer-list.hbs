@@ -14,14 +14,6 @@
                 <p> Posted by <a href="/page/{{owner._id}}">{{owner.username}}</a></p>
                 <p>{{isLiked}}</p>
                 <a href="/offer/details/{{id}}">Details</a>
-
-                {{#unless isLiked}}
-                <a id="liked" href="/offer/like/{{id}}">Like</a>
-                {{/unless}}
-
-                {{#if isLiked}}
-                <a id="liked" href="/offer/like/{{id}}">Unlike</a>
-                {{/if}}
             </article>
         </div>
         {{/each}}
@@ -31,18 +23,11 @@
 <div class="container">
     <main>
         <section class="pt-5 text-center container">
-            <div class="row py-lg-5">
-                <div class="col-lg-6 col-md-8 mx-auto">
-                    <h1 style="color: #E1D89F; class=" fw-light">Rental and Sale Properties From Proprio </h1><br>
-                </div>
-            </div>
         </section>
-
         <div class="album pb-2 px-4   bg-opacity-50">
             <div class="container">
                 <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4 mb-5">
                     {{#each foundOffers}}
-
                     <div class="col">
                         <div class="card h-100 border-0 bg-dark bg-gradient text-light shadow-lg">
                             <img class="bd-placeholder-img card-img-top" width="100%" height="180" src="{{this.images}}"
@@ -50,13 +35,18 @@
                                 focusable="false">
                             <rect width="100%" height="100%" fill="#55595c"></rect></img>
                             <div class="card-body">
-                                <h6 style="color: #E1D89F; class=" card-text">{{this.name}}</h6>
-                                <h7 class="card-text">{{this.owner}}</h7>
+                                <h6 style="color: #E1D89F;" class=" card-text">{{this.name}}</h6>
+                                {{!-- <h6>Posted by<a href="/page/this.owner._id"><h6 class="card-text">{{this.owner.username}}</h6></a> --}}
+                                {{#unless isLiked}}
+                                <a id="liked" href="/offer/like/{{id}}">Like</a>
+                                {{/unless}}
+                                {{#if isLiked}}
+                                <a id="liked" href="/offer/like/{{id}}">Unlike</a>
+                                {{/if}}
                             </div>
-
                             <div class="text-center mb-3">
                                 <a href="/offer/details/{{this._id}}" class=" btn
-                                    btn-outline-" style="color: #E1D89F; role=" button">See
+                                    btn-outline-" style="color: #E1D89F;" role=" button">See
                                     More</a>
                             </div>
                         </div>

@@ -42,25 +42,25 @@
                <li class="nav-item">
                   <a style="color: #E1D89F;" class="nav-link" href="/offer/create-sale">New offer</a>
                </li>
-               {{#if user}}
+               {{!-- {{#if user}} --}}
                <li class="nav-item">
                   <a style="color: #E1D89F;" class="nav-link" href="/auth/user-profile">My profile</a>
                </li>
-               {{/if}}
+               {{!-- {{/if}} --}}
             </ul>
-            {{#unless user}}
+            {{!-- {{#unless user}} --}}
             <a style="color: #E1D89F ;" href=" /auth/login" class="btn btn-outline-$yellow-600 mx-1"
                role="button">Login</a>
             <a style="color: #E1D89F ;" href=" /auth/signup" class="btn btn-outline-$yellow-600 mx-1"
                role="button">Register</a>
-            {{/unless}}
+            {{!-- {{/unless}} --}}
             {{!-- <a style="color: #E1D89F ;" href=" /auth/signup" class="btn btn-outline-$yellow-600 mx-1"
                role="button">Register</a> --}}
-            {{#if user}}
+            {{!-- {{#if user}} --}}
             <form class="m-0" id="logout-form" action="/auth/logout" method="POST">
                <button class="btn btn-outline-#E1D89F">Logout</button>
             </form>
-            {{/if}}
+            {{!-- {{/if}} --}}
             {{!-- {{/if}} --}}
          </div>
       </div>

@@ -10,7 +10,8 @@ mongoose.connect(`mongodb://localhost/${DB_NAME}`);
 
 const users = [
   {
-    username: "Thomas Edison",
+    username: "Tommy",
+    fullName: "Thomas Brussig",
     email: "thomas.edison@gmail.com",
     passwordHash:
       "$2b$10$sSGWwTzgWaF6OsjDKk25Zf.RJ4TaKw1Xh4bEW1/WLoBXf3M.RA.xV.",
@@ -18,7 +19,8 @@ const users = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661345750/real-estate-app/thomas_ha7y99.jpg",
   },
   {
-    username: "Jenny Gordan",
+    username: "Jenny",
+    fullName: "Jenny Gordan",
     email: "jenny.gordan@gmail.com",
     passwordHash:
       "$2b$10$sSGWwTzgWaF6Osj1Kk25Zf.RJ4TaKw1Xh4bEW1/WLoBXf3M.RA.xV.",
@@ -26,7 +28,8 @@ const users = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661345750/real-estate-app/jenny_sbph55.jpg",
   },
   {
-    username: "Will Turner",
+    username: "WillPirate",
+    fullName: "Will Turner",
     email: "will.smith@gmail.com",
     passwordHash:
       "$2b$10$sSGWwTzgWaF6Osj1Kk225Zf.RJ4TaKw1Xh4bEW1/WLoBXf3M.RA.xV.",
@@ -34,7 +37,8 @@ const users = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661345750/real-estate-app/will_eav4j8.png",
   },
   {
-    username: "Samantha Green",
+    username: "SamanthaG",
+    fullName: "Samantha Green",
     email: "samantha.green@yahoo.com",
     passwordHash:
       "$2b$10$sSGWwTzgWaF6Osd1Kk225Zf.RJ4TaKw1Xh4bEW1/WLoBXf3M.RA.xV.",
@@ -42,7 +46,8 @@ const users = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661345750/real-estate-app/emilie_cdm9lq.jpg",
   },
   {
-    username: "Emilie Sanders",
+    username: "Emilie",
+    fullName: "Emilie Sanders",
     email: "emilie.s@yahoo.com",
     passwordHash:
       "$2b$10$sSGWwTzgWaF6Osd1Kk22e5Zf.RJ4TaKw1Xh4bEW1/WLoBXf3M.RA.xV.",
@@ -50,6 +55,7 @@ const users = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661338035/real-estate-app/ywn9xsvf8h7tfhmg3zvu.jpg",
   },
   {
+    username: "Bruce",
     username: "Bruce Lips",
     email: "bruce.lips@yahoo.com",
     passwordHash:
@@ -58,7 +64,8 @@ const users = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661345749/real-estate-app/steve_skel0u.jpg",
   },
   {
-    username: "Henrik Hermann",
+    username: "Henrik24",
+    fullName: "Henrik Hermann",
     email: "henrik.hermann@gmail.com",
     passwordHash:
       "$2b$10$sSGWwTzgWaF6Osd1Kk22e5Zf.RJ4TaK2w1Xh4bEW1/WLoB2f3M.RA.xV.",
@@ -66,7 +73,8 @@ const users = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661345749/real-estate-app/henrik_ps8xae.jpg",
   },
   {
-    username: "Steve Bander",
+    username: "Steve",
+    fullName: "Steve Bander",
     email: "steve.bander@gmail.com",
     passwordHash:
       "$2b$10$sSGWwTzgWaF6Osd1Kk22e5Zf.RJ4TaK23w1Xh4bEW1/WLoB2f3M.RA.xV.",
@@ -74,7 +82,8 @@ const users = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661345749/real-estate-app/bruce_pryo1n.jpg",
   },
   {
-    username: "Emir Agadir",
+    username: "Emir",
+    fullName: "Emir Agadir",
     email: "emir.Agadir@gmail.com",
     passwordHash:
       "$2b$10$sSGWwTzgWaF6Osd12k22e5Zf.RJ4TaK23w1Xh4bEW1/WLoB2f3M.RA.xV.",
