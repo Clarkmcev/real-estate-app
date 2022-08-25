@@ -5,13 +5,14 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
    <title></title>
-   <link rel="stylesheet" href="/stylesheets/style.css" />
+
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
    <link rel="icon" type="image/x-icon" href="/images/home-logo1.png">
    <link rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/css/ol.css" type="text/css">
    <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.14.1/build/ol.js"></script>
+   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body class="d-flex flex-column h-100" style="background-color:#3F4E4F">
@@ -48,13 +49,13 @@
                {{/if}}
             </ul>
 
-            {{#unless user}}
+            {{#unless userNavigation}}
             <a style="color: #E1D89F ;" href="/auth/login" class="btn btn-outline-$yellow-600 mx-1"
                role="button">Login</a>
             <a style="color: #E1D89F ;" href="/auth/signup" class="btn btn-outline-$yellow-600 mx-1"
                role="button">Register</a>
             {{/unless}}
-            {{#if user}}
+            {{#if userNavigation}}
             <form class="color: #E1D89F ;" id="logout-form" action="/auth/logout" method="POST">
                <button class="btn btn-outline-#E1D89F">Logout</button>
             </form>

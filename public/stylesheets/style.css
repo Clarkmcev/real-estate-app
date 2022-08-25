@@ -21,8 +21,6 @@ h1 {
   border: 3px solid #eee;
 }
 
-
-
 .card-img,
 .card-img-bottom,
 .card-img-top {
@@ -49,4 +47,46 @@ h1 {
 .card#no-scale:hover,
 .card#no-scale:active {
   transform: scale(1);
+}
+
+.test {
+  background-color: red;
+}
+
+.form1 {
+  background-color: red;
+}
+
+.profile {
+  width: 400px;
+}
+
+.profile img {
+  margin-top: 30px;
+  margin-left: 50px;
+  width:300px;
+  height:300px;
+  object-fit:cover;
+  border-radius:50%;
+}
+
+.info-user {
+  display: flex;
+  flex-wrap: wrap;
+  color:#E1D89F
+}
+
+.info {
+  margin-top: 60px;
+  margin-left: 100px;
+}
+
+.big {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+hr, h1 {
+  color:#E1D89F;
 }
