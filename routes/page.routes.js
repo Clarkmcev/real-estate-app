@@ -19,21 +19,27 @@ router.get("/:id", (req, res, next) => {
     })
     .then((user) => {
       console.log(user);
-      res.render("page/page-profile", { user });
+      res.render("page/page-profile", {
+        user,
+        userNavigation: req.session.currentUser,
+      });
     })
     .catch((err) => console.log(err));
 });
 
 router.post("/:id", async (req, res, next) => {
   const { id } = req.params;
+  const { _id } = req.session.currentUser;
   const { comment } = req.body;
 
-  Review.create({ user: id, comment })
+  console.log(_id);
+
+  Review.create({ user: _id, comment })
     .then((newReview) => {
       User.findByIdAndUpdate(id, { $push: { reviews: newReview } })
         .populate("reviews")
         .then((user) => {
-          res.render("page/page-profile", { user });
+          res.redirect(`/page/${user._id}`);
         })
         .catch((err) => console.log(err));
     })

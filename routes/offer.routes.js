@@ -25,7 +25,6 @@ router.get("/list", async (req, res, next) => {
           }
         });
       });
-      // console.log(foundOffers);
       res.render("offer/offer-list", {
         foundOffers,
         userNavigation: req.session.currentUser,
@@ -36,6 +35,13 @@ router.get("/list", async (req, res, next) => {
 
 // NEW SALE
 router.get("/create-sale", (req, res, next) => {
+  var formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  console.log(formatter.format(2500));
+
   res.render("offer/create-offer-sale", {
     userNavigation: req.session.currentUser,
   });
@@ -43,11 +49,20 @@ router.get("/create-sale", (req, res, next) => {
 
 router.post("/create", fileUploader.single("image-cover"), (req, res, next) => {
   const { _id } = req.session.currentUser;
+
+  var formatter = new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
+
+  let { price } = req.body;
+
+  price = formatter.format(price);
+
   const {
     name,
     address,
     landSize,
-    price,
     toilets,
     bedrooms,
     garages,
@@ -145,28 +160,6 @@ router.get("/details/:id", async (req, res, next) => {
     .catch((err) => console.log(err));
 });
 
-// router.get("/list", async (req, res, next) => {
-//   const { _id, username } = req.session.currentUser;
-//   let postName = [];
-
-//   const currentUser = await User.findById(_id);
-
-//   Offer.find()
-//     .populate("owner")
-//     .then((foundOffers) => {
-//       foundOffers.map((offer) => {
-//         currentUser.likes.forEach((aLike) => {
-//           if (aLike.toString() === offer._id.toString()) {
-//             offer.isLiked = true;
-//           }
-//         });
-//       });
-//       // console.log(foundOffers);
-//       res.render("offer/offer-list", { foundOffers });
-//     })
-//     .catch((err) => console.error(err));
-// });
-
 // Edit view
 router.get("/edit/:id", (req, res, next) => {
   const id = req.params;
@@ -233,18 +226,16 @@ router.get("/like/:id", async (req, res, next) => {
       });
       if (isLiked) {
         User.findByIdAndUpdate(_id, { $pull: { likes: id } })
-          .then((user) => {
-            console.log("yo");
-            res.redirect("/offer/list", {
+          .then(() => {
+            res.render("offer/list", {
               userNavigation: req.session.currentUser,
             });
           })
           .catch((err) => console.log(err));
       } else {
         User.findByIdAndUpdate(_id, { $push: { likes: id } })
-          .then((user) => {
-            console.log("here");
-            res.redirect("/offer/list", {
+          .then(() => {
+            res.render("offer/list", {
               userNavigation: req.session.currentUser,
             });
           })

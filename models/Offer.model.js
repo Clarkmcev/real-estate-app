@@ -17,7 +17,7 @@ const offerSchema = new Schema({
   garages: { type: Number },
   livingAreas: { type: Number },
   images: { type: String, required: true },
-  price: { type: Number },
+  price: { type: String },
   description: { type: String, required: true },
   owner: { type: Schema.Types.ObjectId, ref: "User" },
   date: { type: Date, default: Date.now },
