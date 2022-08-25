@@ -4,15 +4,15 @@
             <div class="row wow fadeIn">
                 {{#if user.imageProfile}}
                 <div class="col-md-6 mb-4">
-                    <img src="{{user.imageProfile}}" class="img-fluid">
+                    <img src="{{user.imageProfile}}" class="img-fluid" style="border-radius: 200px">
                 </div>
                 {{/if}}
                 {{#unless user.imageProfile}}
                 <div class="col-md-6 mb-4">
-                    <img src="/images/l60Hf.png" class="img-fluid">
+                    <img src="/images/l60Hf.png" class="img-fluid" style="border-radius: 200px">
                 </div>
                 {{/unless}}
-                {{#unless user.imageProfile}}
+                {{!-- {{#unless user.imageProfile}}
                 <form action="/auth/user-profile" method="post" enctype="multipart/form-data">
                     <div class="form-control">
                         <label class="header">Profile Photo:</label>
@@ -20,12 +20,44 @@
                     </div>
                     <input type="submit" class="register" value="Upload">
                 </form>
-                {{/unless}}
+                {{/unless}} --}}
+
+                {{#if user.settings}}
+                <form action="/auth/complete-profile" method="post" enctype="multipart/form-data">
+                    <div class="form-control">
+                        <label class="header">Profile Photo :</label>
+                        <input id="profileImage" type="file" name="profileImage" placeholder="Photo">
+                    </div>
+                    <div class="form-control">
+                        <label class="header">Info :</label>
+                        <input id="info" type="text" name="info" placeholder="Description" value="{{user.info}}">
+                    </div>
+                    <div class="form-control">
+                        <label class="header">City :</label>
+                        <input id="city" type="text" name="city" placeholder="City" value="{{user.city}}">
+                    </div>
+                    <div class="form-control">
+                        <label class="header">Postcode :</label>
+                        <input id="postcode" type="text" name="postcode" placeholder="Postcode" value="{{user.postcode}}">
+                    </div>
+                    <div class="form-control">
+                        <label class="header">Number :</label>
+                        <input id="phoneNumber" type="text" name="phoneNumber" placeholder="Phone number" value="{{user.phoneNumber}}">
+                    </div>
+                    <input type="submit" class="register" value="Complete profile">
+                </form>
+                {{/if}}
+
+                <a href="/auth/settings">Edit profile</a>
                 <div class="col-md-6 mb-4">
                     <div class="p-4">
                         <div class="mb-3">
                             <h2 class="pt-3">{{user.fullName}}</h2>
                             <div><a href="" mailto>{{user.email}}</a></div>
+                            <h3 class="pt-3">{{user.info}}</h3>
+                            <h3 class="pt-3">{{user.city}}</h3>
+                            <h3 class="pt-3">{{user.phoneNumber}}</h3>
+                            <h3 class="pt-3">{{user.postcode}}</h3>
                             {{#if offersByOwner}}
                             <hr>
                             <div>Your offers</div>
@@ -37,10 +69,6 @@
                                             <h2>{{name}}</h2>
                                             <hr>
                                             <img src={{images}} style="width: 100px">
-                                            <p>Address: {{address}}</p>
-                                            <p>Land size: {{landSize}}</p>
-                                            <p>Price: {{price}}</p>
-                                            <p>Date: {{date}}</p>
                                             <a href="/offer/details/{{id}}">Details</a>
                                             <a href="/offer/edit/{{id}}">Edit</a>
                                         </article>
@@ -61,10 +89,6 @@
                                         <h2>{{name}}</h2>
                                         <hr>
                                         <img src={{images}} style="width: 100px">
-                                        <p>Address: {{address}}</p>
-                                        <p>Land size: {{landSize}}</p>
-                                        <p>Price: {{price}}</p>
-                                        <p>Date: {{date}}</p>
                                         <a href="/offer/details/{{id}}">Details</a>
                                         <a href="/offer/remove/{{id}}">Remove</a>
                                     </article>
@@ -74,7 +98,6 @@
                         </section>
                     </div>
                     {{/if}}
-                    {{!-- <a href="/auth/settings">Edit</a> --}}
                 </div>
             </div>
         </div>

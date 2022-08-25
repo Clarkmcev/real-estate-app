@@ -70,7 +70,7 @@ router.post("/signup", (req, res, next) => {
       .then((user) => {
         // Bind the user to the session object
         req.session.user = user;
-        res.redirect("/");
+        res.redirect("/auth/login");
       })
       .catch((error) => {
         if (error instanceof mongoose.Error.ValidationError) {
@@ -127,7 +127,7 @@ router.post("/login", (req, res, next) => {
         }
         req.session.currentUser = user;
         // req.session.user = user._id; // ! better and safer but in this case we saving the entire user object
-        return res.redirect("/");
+        return res.redirect("/auth/user-profile");
       });
     })
     .catch((err) => {
@@ -168,7 +168,7 @@ router.get("/user-profile", (req, res, next) => {
             user: req.session.currentUser,
           });
         } else {
-          res.render("auth/user-profile", { user: req.session.user });
+          res.render("auth/user-profile", { user: req.session.currentUser });
         }
       });
     })
@@ -179,11 +179,9 @@ router.post(
   "/user-profile",
   fileUploader.single("profile"),
   (req, res, next) => {
-    console.log(req.file);
     const { _id } = req.session.currentUser;
     User.findByIdAndUpdate(_id, { profileImage: req.file.path })
       .then((updatedUser) => {
-        console.log(updatedUser);
         req.session.currentUser.imageProfile = req.file.path;
         res.redirect("/auth/user-profile");
       })
@@ -204,10 +202,39 @@ router.get("/remove/:id", (req, res, next) => {
 
 // Settings route
 router.get("/settings", (req, res, next) => {
-  let settings = {};
-  settings.isClicked = "ye";
-  console.log(settings);
-  res.render("auth/user-profile", { user: req.session.user });
+  const user = req.session.currentUser;
+  console.log(user);
+  if (user.settings) {
+    user.settings = false;
+    res.render("auth/user-profile", { user });
+  } else {
+    user.settings = true;
+    res.render("auth/user-profile", { user });
+  }
 });
+
+// Complete profile
+router.post(
+  "/complete-profile",
+  fileUploader.single("profileImage"),
+  (req, res, next) => {
+    const { profileImage, info, city, postcode, phoneNumber } = req.body;
+    console.log(profileImage);
+    const { _id } = req.session.currentUser;
+    User.findByIdAndUpdate(_id, {
+      profileImage: req.file.path,
+      info,
+      city,
+      postcode,
+      phoneNumber,
+    })
+      .then(() => {
+        const user = req.session.currentUser;
+        user.settings = false;
+        res.redirect("/auth/user-profile");
+      })
+      .catch((err) => console.log(err));
+  }
+);
 
 module.exports = router;
