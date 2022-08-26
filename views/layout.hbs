@@ -33,9 +33,6 @@
          </button>
          <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-               <li class="nav-item">
-                  <a style="color: #E1D89F;" class="nav-link active" aria-current="page" href="/">Home</a>
-               </li>
                {{#if userNavigation}}
                <li class="nav-item">
                   <a style="color: #E1D89F;" class="nav-link" href="/offer/list">Offers</a>
@@ -43,11 +40,12 @@
                <li class="nav-item">
                   <a style="color: #E1D89F;" class="nav-link" href="/offer/create-sale">New offer</a>
                </li>
-               <li class="nav-item">
-                  <a style="color: #E1D89F;" class="nav-link" href="/auth/user-profile">My profile </a>
-               </li>
                {{/if}}
             </ul>
+
+            {{#if userNavigation}}
+             <a style="color: #E1D89F;" class="btn btn-outline-$yellow-600 mx-1" role="button" href="/auth/user-profile">My profile </a>
+            {{/if}}
 
             {{#unless userNavigation}}
             <a style="color: #E1D89F ;" href="/auth/login" class="btn btn-outline-$yellow-600 mx-1"
@@ -56,11 +54,20 @@
                role="button">Register</a>
             {{/unless}}
 
+
             {{#if userNavigation}}
-            <form style="color: #E1D89F;" id="logout-form" action="/auth/logout" method="POST">
-               <button style="color: #E1D89F;" class="btn btn-outline-$yellow-600 mx-1" role="button">Logout</button>
-            </form>
+            <a style="color: #E1D89F ;" href="/auth/signup" class="btn btn-outline-$yellow-600 mx-1"
+               role="button">Logout</a>
             {{/if}}
+
+
+            {{!-- {{#if userNavigation}}
+            <div>
+               <form style="color: #E1D89F;" id="logout-form" action="/auth/logout" method="POST">
+                  <button style="color: #E1D89F;" class="btn btn-outline-$yellow-600 mx-1" role="button">Logout</button>
+               </form>
+            </div>
+            {{/if}} --}}
          </div>
       </div>
    </nav>

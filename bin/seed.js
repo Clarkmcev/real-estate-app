@@ -146,7 +146,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346714/real-estate-app/white_house_v3ypxf.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea663828c"),
+    owner: ObjectId("63088c24205eeb0f26e47e43"),
   },
   {
     offerType: "sale",
@@ -163,7 +163,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346715/real-estate-app/little_red_kq0ndu.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea663828c"),
+    owner: ObjectId("63088c24205eeb0f26e47e43"),
   },
   {
     offerType: "sale",
@@ -180,7 +180,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346716/real-estate-app/familiy_house_rfbv6w.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea663828c"),
+    owner: ObjectId("63088c24205eeb0f26e47e43"),
   },
   {
     offerType: "sale",
@@ -197,7 +197,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346711/real-estate-app/modern_house_hwwbkp.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea663828c"),
+    owner: ObjectId("63088c24205eeb0f26e47e43"),
   },
   {
     offerType: "sale",
@@ -214,7 +214,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346711/real-estate-app/lost_house_onv3zp.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea663828c"),
+    owner: ObjectId("63088c24205eeb0f26e47e43"),
   },
   {
     offerType: "rent",
@@ -231,7 +231,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346710/real-estate-app/green_vintage_mvgxio.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea663828c"),
+    owner: ObjectId("63088c24205eeb0f26e47e3e"),
   },
   {
     offerType: "rent",
@@ -248,7 +248,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346709/real-estate-app/cozy_flat_rigvgc.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea6638286"),
+    owner: ObjectId("63088c24205eeb0f26e47e3d"),
   },
   {
     offerType: "sale",
@@ -265,7 +265,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346705/real-estate-app/family_flat_ozulum.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea6638286"),
+    owner: ObjectId("63088c24205eeb0f26e47e3d"),
   },
   {
     offerType: "sale",
@@ -282,7 +282,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346708/real-estate-app/newstyle_house_ngjxhg.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea6638286"),
+    owner: ObjectId("63088c24205eeb0f26e47e3d"),
   },
   {
     offerType: "sale",
@@ -299,7 +299,7 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346708/real-estate-app/newstyle_house_ngjxhg.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea6638286"),
+    owner: ObjectId("63088c24205eeb0f26e47e3c"),
   },
   {
     offerType: "sale",
@@ -316,19 +316,19 @@ const offers = [
       "https://res.cloudinary.com/societe-generale/image/upload/v1661346707/real-estate-app/country_house_bc6gwr.jpg",
     description:
       "Has doctus iuvaret epicuri cu, accusamus posidonium scripserit et sea, sit quem oportere prodesset ad. Sed zril facete adipiscing id, ius appetere facilisis no. An cetero labitur delectus vix, ad agam consetetur inciderint cum, cum id euripidis scriptorem. Ad graeci causae vivendo sea. At usu erat affert, lobortis delicata mea ex. Ea possim omnium nusquam mea.",
-    owner: ObjectId("630776c1418326fea6638286"),
+    owner: ObjectId("63088c24205eeb0f26e47e3b"),
   },
 ];
 
 // Create USERS  && OFFERS *********************************************************************************************
-User.create(users)
-  .then((usersArr) => {
-    console.log(`Created ${usersArr.length} users`);
-    mongoose.connection.close();
-  })
-  .catch((err) =>
-    console.log(`An error occurred while getting books from the DB: ${err}`)
-  );
+// User.create(users)
+//   .then((usersArr) => {
+//     console.log(`Created ${usersArr.length} users`);
+//     mongoose.connection.close();
+//   })
+//   .catch((err) =>
+//     console.log(`An error occurred while getting books from the DB: ${err}`)
+//   );
 
 Offer.create(offers)
   .then((offersList) => {

@@ -45,10 +45,6 @@ h1 {
   transform: scale(1);
 }
 
-.test {
-  background-color: red;
-}
-
 .profile {
   width: 400px;
 }
@@ -86,7 +82,7 @@ h1 {
   margin: auto;
   width: 70%;
   padding: 50px;
-  background-color:#2f5a37;
+  /* background-color:#2f5a37; */
 }
 
 hr, h3 {
@@ -118,7 +114,6 @@ hr, h3 {
   margin: auto;
   width: 70%;
   padding: 50px;
-  background-color:#2f5a37;
 }
 
 .form1 {
@@ -193,4 +188,8 @@ hr, h3 {
 lu {
   list-style-type: none;
   color:#E1D89F;
+}
+
+.btn {
+  text-align: center;
 }
