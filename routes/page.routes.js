@@ -18,7 +18,6 @@ router.get("/:id", (req, res, next) => {
       },
     })
     .then((user) => {
-      console.log(user);
       res.render("page/page-profile", {
         user,
         userNavigation: req.session.currentUser,
@@ -32,8 +31,6 @@ router.post("/:id", async (req, res, next) => {
   const { _id } = req.session.currentUser;
   const { comment } = req.body;
 
-  console.log(_id);
-
   Review.create({ user: _id, comment })
     .then((newReview) => {
       User.findByIdAndUpdate(id, { $push: { reviews: newReview } })
@@ -44,6 +41,10 @@ router.post("/:id", async (req, res, next) => {
         .catch((err) => console.log(err));
     })
     .catch((err) => console.log(err));
+});
+
+router.get("/about", (req, res, next) => {
+  res.render("page/about-us");
 });
 
 module.exports = router;

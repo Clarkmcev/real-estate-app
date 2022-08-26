@@ -157,7 +157,6 @@ router.get("/user-profile", (req, res, next) => {
   User.findById(_id)
     .populate("likes")
     .then((foundUser) => {
-      console.log(foundUser);
       const arrLikes = foundUser.likes;
       Offer.find({ owner: _id }).then((offersByOwner) => {
         if (req.session.currentUser) {
@@ -207,12 +206,8 @@ router.get("/remove/:id", (req, res, next) => {
 // Settings route
 router.get("/settings", async (req, res, next) => {
   const { _id } = req.session.currentUser;
-  console.log(_id);
-
   const foundUser = await User.findById(_id);
-
-  console.log(foundUser);
-
+  console.log(_id);
   if (user.settings) {
     foundUser.settings = false;
     res.render("auth/user-profile", {
@@ -227,19 +222,23 @@ router.get("/settings", async (req, res, next) => {
 
 // Complete profile
 router.post(
-  "/complete-profile",
+  "/complete",
   fileUploader.single("profileImage"),
   (req, res, next) => {
+    console.log("hey");
     const { profileImage, info, city, postcode, phoneNumber } = req.body;
-    console.log(profileImage);
     const { _id } = req.session.currentUser;
-    User.findByIdAndUpdate(_id, {
-      profileImage: req.file.path,
-      info,
-      city,
-      postcode,
-      phoneNumber,
-    })
+    console.log(req.body);
+    User.findByIdAndUpdate(
+      { _id },
+      {
+        profileImage: req.file.path,
+        info,
+        city,
+        postcode,
+        phoneNumber,
+      }
+    )
       .then(() => {
         const user = req.session.currentUser;
         user.settings = false;

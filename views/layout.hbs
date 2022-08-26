@@ -44,7 +44,7 @@
                   <a style="color: #E1D89F;" class="nav-link" href="/offer/create-sale">New offer</a>
                </li>
                <li class="nav-item">
-                  <a style="color: #E1D89F;" class="nav-link" href="/offer/about-us">About Us</a>
+                  <a style="color: #E1D89F;" class="nav-link" href="/page/about">About us</a>
                </li>
                <li class="nav-item">
                   <a style="color: #E1D89F;" class="nav-link" href="/auth/user-profile">My profile </a>
@@ -58,15 +58,10 @@
             <a style="color: #E1D89F ;" href="/auth/signup" class="btn btn-outline-$yellow-600 mx-1"
                role="button">Register</a>
             {{/unless}}
-<<<<<<< HEAD
-            {{#if user}}
-            <form style="color: #E1D89F ;" id="logout-form" action="/auth/logout" method="POST">
-               <button style="color: #E1D89F ;" class="btn btn-outline">Logout</button>
-=======
+
             {{#if userNavigation}}
-            <form class="color: #E1D89F ;" id="logout-form" action="/auth/logout" method="POST">
-               <button class="btn btn-outline-#E1D89F">Logout</button>
->>>>>>> ab3113b998c3872be3b9b28fe05bd9b3b175d3ba
+            <form style="color: #E1D89F;" id="logout-form" action="/auth/logout" method="POST">
+               <button style="color: #E1D89F;" class="btn btn-outline-$yellow-600 mx-1" role="button">Logout</button>
             </form>
             {{/if}}
          </div>
@@ -85,5 +80,4 @@
       crossorigin="anonymous"></script>
    <script src="/js/script.js"></script>
 </body>
-
 </html>

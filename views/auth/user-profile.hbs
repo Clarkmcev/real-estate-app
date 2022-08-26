@@ -1,9 +1,9 @@
 <div class="big">
     <div class="info-user">
         {{#if user.profileImage}}
-            <div class="profile">
+        <div class="profile">
                 <img src="{{user.profileImage}}" style="border-radius: 200px">
-            </div>
+        </div>
         {{/if}}
         {{#unless user.profileImage}}
             <div>
@@ -12,51 +12,76 @@
                 </div>
             </div>
         {{/unless}}
+        {{#unless user.settings}}
         <div class="info">
             <h1>{{user.fullName}}</h1>
-            <p><a style="color:#E1D89F" ; href="" mailto>{{user.email}}</a></p>
+            <hr>
+            <p><a style="color:#E1D89F" ; href="">{{user.email}}</a></p>
             <p>{{user.info}}</p>
             <p>{{user.city}}</p>
             <p>{{user.phoneNumber}}</p>
             <p>{{user.postcode}}</p>
-            <a href="/auth/settings" class="btn" role="button">Edit profile</a>
+            <a href="/auth/settings" class="btn btn-outline-$yellow-600 mx-1" style="color: #E1D89F;" role="button">Edit profile</a>
         </div>
+        {{/unless}}
+        {{#if user.settings}}
+        <div class="container_p">   
+            <h2>Edit profile</h2>
+            <hr>
+            <form class="from1" action="/auth/complete" method="POST" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-outline">
+                            <input style="background-color: #E1D89F; " type="text" name="info"
+                                placeholder="Information" class="form-control" value="{{user.info}}" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-outline">
+                            <input style="background-color: #E1D89F;" type="text" name="city"
+                                placeholder="Address" class=" form-control" value="{{user.city}}" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-outline">
+                            <input style="background-color: #E1D89F;" type="number" name="postcode"
+                                placeholder="Post code" class="form-control" value="{{user.postcode}}"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-outline">
+                            <input style="background-color: #E1D89F;" type="text" name="phoneNumber"
+                                placeholder="Phone number" class="form-control" value="{{user.phoneNumber}}" required/>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-outline">
+                            <input style="background-color: #E1D89F;" type="file" name="profileImage"
+                                placeholder="Image" class=" form-control-file" required/>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                 <button type="submit" style="color: #E1D89F;" class="btn-dark btn">Update</button>
+            </form>
+        </div>
+        {{/if}}
     </div>
 
-    {{#if user.settings}}
-    <form class="form1" action="/auth/complete-profile" method="post" enctype="multipart/form-data">
-            <div>
-                <label class="header">Profile Photo :</label>
-                <input id="test1" type="file" name="profileImage" placeholder="Photo">
-            </div>
-            <div>
-                <label class="header">Info :</label>
-                <input id="info" type="text" name="info" placeholder="Description"
-                    value="{{user.info}}">
-            </div>
-            <div>
-                <label class="header">City :</label>
-                <input id="city" type="text" name="city" placeholder="City" value="{{user.city}}">
-            </div>
-            <div>
-                <label class="header">Postcode :</label>
-                <input id="postcode" type="text" name="postcode" placeholder="Postcode"
-                    value="{{user.postcode}}">
-            </div>
-            <div>
-                <label class="header">Number :</label>
-                <input id="phoneNumber" type="text" name="phoneNumber" placeholder="Phone number"
-                    value="{{user.phoneNumber}}">
-            </div>
-            <input type="submit" class="submit " role="button" value="upload">
-        </form>
-    {{/if}}
     {{!-- USER INFOs --}}
+{{#if offersByOwner}}
     <div class="heads">
-        <h1>My offers</h1>
+        <h3>My offers</h3>
     </div>
     <hr>
-{{#if offersByOwner}}
 <div class="container">
     <main>
         <section class="pt-5 text-center container">
@@ -66,17 +91,17 @@
                         <div class="container">
                             <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4 mb-5">
                                 {{#each offersByOwner}}
-                                <div class="colp">
+                                <div class="col_p">
                                     <div class="card h-100 border-0 bg-dark bg-gradient text-light shadow-lg">
                                         <img class="bd-placeholder-img card-img-top" width="100%" height="180"
                                             src="{{images}}" role="img" aria-label="Placeholder: Thumbnail"
                                             preserveAspectRatio="xMidYMid slice" focusable="false">
                                         <rect width="100%" height="100%" fill="#55595c"></rect></img>
                                         <div class="card-body">
-                                            <h6 style="color: #E1D89F;" class=" card-text">{{name}}</h6>
+                                            <h6 style="color: #ffffff;" class=" card-text">{{name}}</h6>
                                         </div>
                                         <div class="text-center mb-3">
-                                            <a href="/offer/details/{{this._id}}" class=" btn btn-outline-" style="color: #E1D89F;" role=" button">See more</a>
+                                            <a href="/offer/edit/{{this._id}}" class=" btn btn-outline-" style="color: #E1D89F;" role=" button">Edit</a>
                                         </div>
                                     </div>
                                 </div>
@@ -89,17 +114,18 @@
     </main>
 </div>
 {{/if}}
+
+{{#if arrLikes}}
     <div class="heads">
-        <h1>My favorites</h1>
+        <h3>My favorites</h3>
     </div>
     <hr>
-{{#if arrLikes}}
 <div class="container">
     <main>
         <section class="pt-5 text-center container">
             <div class="container">
                 <main>
-                    <div class="album pb-2 px-4   bg-opacity-50">
+                    <div class="album pb-2 px-4 bg-opacity-50">
                         <div class="container">
                             <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4 mb-5">
                                 {{#each arrLikes}}
@@ -110,11 +136,13 @@
                                             preserveAspectRatio="xMidYMid slice" focusable="false">
                                         <rect width="100%" height="100%" fill="#55595c"></rect></img>
                                         <div class="card-body">
-                                            <h6 style="color: #E1D89F;" class=" card-text">{{this.name}}</h6>
-                                            <h6 style="color: #E1D89F;" class=" card-text">{{this.price}}</h6>
+                                            <h6 style="color: #92b48f;;" class=" card-text">{{this.price}}</h6>
                                         </div>
                                         <div class="text-center mb-3">
                                             <a href="/offer/details/{{this._id}}" class=" btn btn-outline-" style="color: #E1D89F;" role=" button">See more</a>
+                                        </div>
+                                        <div class="text-center mb-3">
+                                            <a href="/offer/remove/{{this._id}}" class=" btn btn-outline-" style="color: #E1D89F;" role=" button">Remove</a>
                                         </div>
                                     </div>
                                 </div>

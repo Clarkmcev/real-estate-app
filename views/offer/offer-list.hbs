@@ -7,15 +7,15 @@
                         <div class="container">
                             <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4 mb-5">
                                 {{#each foundOffers}}
-                                <div class="col">
+                                <div class="col_d">
                                     <div class="card h-100 border-0 bg-dark bg-gradient text-light shadow-lg">
                                         <img class="bd-placeholder-img card-img-top" width="100%" height="180"
                                             src="{{this.images}}" role="img" aria-label="Placeholder: Thumbnail"
                                             preserveAspectRatio="xMidYMid slice" focusable="false">
                                         <rect width="100%" height="100%" fill="#55595c"></rect></img>
                                         <div class="card-body">
-                                            <h6 style="color: #E1D89F;" class=" card-text">{{this.name}}</h6>
-                                            <h6 style="color: #E1D89F;" class=" card-text">{{this.price}}</h6>
+                                            <h6 style="color: #ffffff;  font-weight: bold;" class=" card-text">{{this.name}}</h6>
+                                            <h6 style="color: #92b48f;" class=" card-text">{{this.price}}</h6>
                                         </div>
                                         <div class="text-center mb-3">
                                             <a href="/offer/details/{{this._id}}" class=" btn btn-outline-" style="color: #E1D89F;" role=" button">See more</a>

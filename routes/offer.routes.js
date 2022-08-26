@@ -227,7 +227,7 @@ router.get("/like/:id", async (req, res, next) => {
       if (isLiked) {
         User.findByIdAndUpdate(_id, { $pull: { likes: id } })
           .then(() => {
-            res.render("offer/list", {
+            res.render("index", {
               userNavigation: req.session.currentUser,
             });
           })
@@ -235,7 +235,7 @@ router.get("/like/:id", async (req, res, next) => {
       } else {
         User.findByIdAndUpdate(_id, { $push: { likes: id } })
           .then(() => {
-            res.render("offer/list", {
+            res.render("index", {
               userNavigation: req.session.currentUser,
             });
           })
@@ -275,9 +275,7 @@ router.get("/remove/:id", (req, res, next) => {
   const { id } = req.params;
   User.findByIdAndUpdate(_id, { $pull: { likes: id } })
     .then((user) => {
-      res.redirect("/auth/user-profile", {
-        userNavigation: req.session.currentUser,
-      });
+      res.redirect("/auth/user-profile");
     })
     .catch((err) => console.log(err));
 });

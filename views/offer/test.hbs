@@ -2,13 +2,13 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h2 style="color: #E1D89F ; font-size:1.1cm ; position:relative; text-align: center;" class="fw-bold mb-2">My new offer</h2>
+                <h2 style="color: #E1D89F ; font-size:1.1cm ; position:relative; text-align: center;" class="fw-bold mb-2">Edit my offer</h2>
                 <hr>
-                <form class="form1" action="/offer/create" method="POST" enctype="multipart/form-data">
+                <form class="form1" action="/edit/{{foundOffer._id}}" method="POST" enctype="multipart/form-data">
                     <div class="row1">
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
-                                <select style="background-color: #E1D89F;" name="type" id="type">
+                                <select style="background-color: #E1D89F;" name="type" id="type" value="{{foundOffer.typeOFfer}}">
                                     <option style="color:black ;" value="Sale">For sale</option>
                                     <option value="rent">For rent</option>
                                 </select>
@@ -18,8 +18,8 @@
                     <div class="row1">
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
-                                <select style="background-color: #E1D89F;" name="type" id="type">
-                                    <option style="color:black ;" value="flat">Flat</option>
+                                <select style="background-color: #E1D89F;" name="type" id="type" value="{{foundOffer.type}}">
+                                    <option style="color:black ;" >Flat</option>
                                     <option value="house">House</option>
                                 </select>
                             </div>
@@ -29,7 +29,7 @@
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F; " type="text" name="name"
-                                    placeholder="Title of the property" class="form-control" required />
+                                    placeholder="Title of the property" value="{{foundOffer.name}}" class="form-control" required />
                             </div>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F;" type="text" name="address"
-                                    placeholder="Address" class=" form-control" required />
+                                    placeholder="Address" value="{{foundOffer.address}}" class=" form-control" required />
                             </div>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F;" type="number" name="landSize"
-                                    placeholder="Land size" class="form-control" required />
+                                    placeholder="Land size" value="{{foundOffer.landSize}}" class="form-control" required />
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F;" type="number" name="price"
-                                    placeholder=" Price in $" class="form-control" required />
+                                    placeholder=" Price in $"  value="{{foundOffer.price}}" class="form-control" required />
                             </div>
                         </div>
                     </div>
@@ -70,7 +70,7 @@
                             <div class="col-md-8 mb-3">
                                 <div class="form-outline">
                                     <label style="color: #E1D89F ;font-size:larger ; " for="toilets">Toilets</label>
-                                    <select style="background-color: #E1D89F;" name="toilets" id="toilets">
+                                    <select style="background-color: #E1D89F;" name="toilets" id="toilets" value="{{foundOffer.toilets}}">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -82,7 +82,7 @@
                             <div class="col-md-8 mb-3">
                                 <div class="form-outline">
                                     <label style="color: #E1D89F ; font-size:larger ; " for="bedrooms">Bedrooms</label>
-                                    <select style="background-color: #E1D89F;" name="bedrooms" id="bedrooms">
+                                    <select style="background-color: #E1D89F;" name="bedrooms" id="bedrooms" value="{{foundOffer.bedrooms}}">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -93,8 +93,8 @@
                             </div>
                             <div class="col-md-8 mb-3">
                                 <div class="form-outline">
-                                    <label style="color: #E1D89F ; font-size:larger ;  " font-size for="garages">Garages</label>
-                                    <select style="background-color: #E1D89F;" name="garages" id="garages">
+                                    <label style="color: #E1D89F ; font-size:larger;" font-size for="garages">Garages</label>
+                                    <select style="background-color: #E1D89F;" name="garages" id="garages" value="{{foundOffer.garages}}">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -106,7 +106,7 @@
                             <div class="col-md-8 mb-3">
                                 <div class="form-outline">
                                     <label style="color: #E1D89F ; font-size:larger ; " for="livingRooms">Living Areas</label>
-                                    <select style="background-color: #E1D89F;"  name=" livingAreas" id="livingAreas">
+                                    <select style="background-color: #E1D89F;"  name=" livingAreas" id="livingAreas" value="{{foundOffer.livingAreas}}">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -121,7 +121,7 @@
                         <div class="col-md-8 mb-3">
                             <div class="form-outline">
                                 <input style="background-color: #E1D89F; " type="text" name="description"
-                                    placeholder=" Description" class="form-control" required />
+                                    placeholder=" Description" value="{{foundOffer.description}}" class="form-control" required />
                             </div>
                         </div>
                         <hr>

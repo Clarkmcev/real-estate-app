@@ -1,4 +1,4 @@
-<div class="container">
+{{!-- <div class="container">
     <main class="mt-5 pt-4">
         <div class="container dark-grey-text mt-5 px-4 bg-light bg-opacity-50">
             <div class="row wow fadeIn">
@@ -39,4 +39,46 @@
             </div>
         </div>
     </main>
+</div> --}}
+
+<div class="big">
+    <div class="info-user">
+        {{#if user.profileImage}}
+        <div class="col-md-6 mb-4">
+            <img src="{{user.profileImage}}" class="img-fluid">
+        </div>
+        {{/if}}
+        {{#unless user.profileImage}}
+        <div class="col-md-6 mb-4">
+            <img src="/images/l60Hf.png" class="img-fluid">
+        </div>
+        {{/unless}}
+        <div class="info">
+            <h1>{{user.fullName}}</h1>
+            <hr>
+            <p><a style="color:#E1D89F" ; href="">{{user.email}}</a></p>
+            <p>{{user.city}}</p>
+            <p>{{user.phoneNumber}}</p>
+            <p>{{user.postcode}}</p>
+            <p>{{user.info}}</p>
+        </div>
+    </div>
+    <div class="rev">
+    <div class="heads">
+        <h3>Reviews</h3>
+    </div>
+    <hr>
+        {{#each user.reviews}}
+        <lu>
+            <li>"{{this.comment}}" -by {{this.user.username}}</li>
+        </lu>
+        {{/each}}
+        <form action="/page/{{user.id}}" method="POST">
+
+            <hr>
+            <label  style="color:#E1D89F;"> Write a review</label>
+            <input type="text" name="comment"/>
+            <button class="bb" type="submit" class="btn-dark btn">Submit review</button>
+        </form>
+    </div>
 </div>

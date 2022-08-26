@@ -1,54 +1,41 @@
-<div class="container">
-    <main class="mt-5 pt-4">
-        <div class="container dark-grey-text mt-5 px-4 bg- bg-opacity-50">
-            <div class="row wow fadeIn">
-                <div class="col-md-6 my-4">
-                    <img src="{{foundOffer.images}}" class="img-fluid w-100 rounded-5" />
-                </div>
-                <div class="col-md-6 mb-4">
-                    <div class="p-4">
-                        <div class="mb-3">
-                            <p style="color: #E1D89F;"><strong style="font-size:245%;">{{foundOffer.name}}
-                                </strong></p>
-                        </div>
-                        <div class="lead">
-                            <p style="color: #E1D89F;"><strong style="font-size:115%;">
-                                </strong>{{foundOffer.address}}</p>
-                            <p style="color: #E1D89F;"><strong style="font-size:115%;"></strong>
-                                {{foundOffer.landSize}} m2</p>
-                            <p style="color: #E1D89F;"><strong style="font-size:115%;"></strong>
-                                {{foundOffer.price}}</p> 
-                            <p style="color: #E1D89F;"><strong style="font-size:115%;"></strong>
-                                {{foundOffer.toilets}} toilets</p>
-                            <p style="color: #E1D89F;"><strong style="font-size:115%;"></strong>
-                                {{foundOffer.garages}} garage spaces</p>
-                            <p style="color: #E1D89F;"><strong style="font-size:115%;"></strong>
-                                {{foundOffer.livingAreas}} living areas</p>
-                            <p style="color: #E1D89F;"><strong style="font-size:115%;"></strong>
-                                {{foundOffer.bedrooms}} bedrooms</p>
-                            </p>
-                        </div>
-                        <p style="color: #E1D89F; font-size:105%;">{{foundOffer.description}}</p>
-                        <div class="mb-3">
-                            <p style="color: #E1D89F;"><strong style="font-size:115%;">Posted by <a
-                                        href="/page/{{foundOffer.owner._id}}">{{foundOffer.owner.username}}</a></strong>
-                        </div class="col-md1 my-8">
-                        <a href="/offer/list" class="btn btn-success btn-outline-dark btn-rounded text-white my-25 px-4"
-                            role="button">Back to Offers
-                        </a>
-                        <div class="col-md-6 my-4">
-                            {{#unless isLiked}}
-                            <a id="liked" href="/offer/like/{{foundOffer._id}}"
-                                class="btn btn-success btn-outline-dark btn-rounded text-white my-25 px-4"
-                                role="button">Like</a>
-                            {{/unless}}
-                            {{#if isLiked}}
-                            <a id="liked" href="/offer/like/{{foundOffer._id}}">Unlike</a>
-                            {{/if}}
-                        </div>
+
+<div>
+    <div class="container dark-grey-text mt-5 px-4 bg- bg-opacity-50">
+        <div class="container_d">
+            <div class="col-md-6 my-4">
+                <img src="{{foundOffer.images}}" class="img-fluid w-100 rounded-5" />
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4">
+                    <div class="mb-3">
+                        <p style="color: #E1D89F;"><strong style="font-size:245%;">{{foundOffer.name}}
+                            </strong></p>
                     </div>
+                    <div class="lead">
+                        <p style="color: #E1D89F;">{{foundOffer.address}}</p>
+                        <p style="color: #E1D89F;">{{foundOffer.landSize}} m2</p>
+                        <p style="color: #E1D89F;">{{foundOffer.price}}</p> 
+                        <p style="color: #E1D89F;">{{foundOffer.toilets}} toilets</p>
+                        <p style="color: #E1D89F;">{{foundOffer.garages}} garage spaces</p>
+                        <p style="color: #E1D89F;">{{foundOffer.livingAreas}} living areas</p>
+                        <p style="color: #E1D89F;">{{foundOffer.bedrooms}} bedrooms</p>
+                        </p>
+                        <p style="color: #E1D89F;">{{foundOffer.description}}</p>
+                    </div>
+                    <div class="mb-3" style="text-align: center">
+                        <p style="color: #E1D89F;"><strong style="font-size:115%;">Posted by <a
+                                    href="/page/{{foundOffer.owner._id}}" style="text-decoration: none; color:  #6fc98f;" >{{foundOffer.owner.username}}</a></strong>
+                    </div class="col-md1 my-8">
+                    {{#unless isLiked}}
+                    <a id="liked" href="/offer/like/{{foundOffer._id}}"
+                        class="btn btn-success btn-outline-dark btn-rounded text-white my-25 px-4"
+                        role="button">Add to favorites</a>
+                    {{/unless}}
+                    {{#if isLiked}}
+                    <a id="liked" href="/offer/like/{{foundOffer._id}}" class="btn btn-success btn-outline-dark btn-rounded text-white my-25 px-4">Unlike</a>
+                    {{/if}}
                 </div>
             </div>
         </div>
-    </main>
+    </div>
 </div>
