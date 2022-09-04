@@ -330,14 +330,14 @@ const offers = [
 //     console.log(`An error occurred while getting books from the DB: ${err}`)
 //   );
 
-Offer.create(offers)
-  .then((offersList) => {
-    console.log(`Created ${offersList.length} offers`);
-    mongoose.connection.close();
-  })
-  .catch((err) =>
-    console.log(`An error occurred while getting books from the DB: ${err}`)
-  );
+// Offer.create(offers)
+//   .then((offersList) => {
+//     console.log(`Created ${offersList.length} offers`);
+//     mongoose.connection.close();
+//   })
+//   .catch((err) =>
+//     console.log(`An error occurred while getting books from the DB: ${err}`)
+//   );
 
 // Delete all USERS & OFFERSW
 // User.deleteMany()

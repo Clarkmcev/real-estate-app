@@ -33,14 +33,23 @@ router.get("/list", async (req, res, next) => {
     .catch((err) => console.error(err));
 });
 
+router.post("/list", async (req, res, next) => {
+  const { _id, username } = req.session.currentUser;
+  const { searchInput } = req.body;
+  const foundOffers = await Offer.find({ $text: { $search: searchInput } });
+
+  res.render("offer/offer-list", {
+    foundOffers,
+    userNavigation: req.session.currentUser,
+  });
+});
+
 // NEW SALE
 router.get("/create-sale", (req, res, next) => {
   var formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
   });
-
-  console.log(formatter.format(2500));
 
   res.render("offer/create-offer-sale", {
     userNavigation: req.session.currentUser,
@@ -178,6 +187,7 @@ router.post(
   fileUploader.single("image-cover"),
   (req, res, next) => {
     const id = req.params;
+    console.log(id);
     const {
       name,
       address,

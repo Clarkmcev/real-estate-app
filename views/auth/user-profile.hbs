@@ -17,11 +17,14 @@
             <h1>{{user.fullName}}</h1>
             <hr>
             <p><a style="color:#E1D89F" ; href="">{{user.email}}</a></p>
+            {{#unless user.info}}
+            <div>Hello {{user.username}}, welcome to Proprio. Your account is almost setup, please click on edit your profile to complete your profile.</div>
+            {{/unless}}
             <p>{{user.info}}</p>
             <p>{{user.city}}</p>
             <p>{{user.phoneNumber}}</p>
             <p>{{user.postcode}}</p>
-            <a href="/auth/settings" class="btn btn-outline-$yellow-600 mx-1" style="color: #E1D89F;" role="button">Edit profile</a>
+             <a href="/auth/settings" class="btn-dark btn" id="edit-button" style="color: #E1D89F;" role="button">Edit profile</a>
         </div>
         {{/unless}}
         {{#if user.settings}}
@@ -101,7 +104,7 @@
                                             <h6 style="color: #ffffff;" class=" card-text">{{name}}</h6>
                                         </div>
                                         <div class="text-center mb-3">
-                                            <a href="/offer/edit/{{this._id}}" class=" btn btn-outline-" style="color: #E1D89F;" role=" button">Edit</a>
+                                            <a href="/offer/edit/{{this._id}}" class="btn btn-outline" style="color: #E1D89F;" role=" button">Edit</a>
                                         </div>
                                     </div>
                                 </div>

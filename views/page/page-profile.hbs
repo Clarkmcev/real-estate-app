@@ -44,9 +44,6 @@
 <div class="big">
     <div class="info-user">
         {{#if user.profileImage}}
-        <div class="col-md-6 mb-4">
-            <img src="{{user.profileImage}}" class="img-fluid">
-        </div>
         {{/if}}
         {{#unless user.profileImage}}
         <div class="col-md-6 mb-4">
@@ -54,7 +51,12 @@
         </div>
         {{/unless}}
         <div class="info">
+        <div class="profile_page">
             <h1>{{user.fullName}}</h1>
+            <div>
+                <img src="{{user.profileImage}}" class="img-fluid">
+            </div>
+        </div>
             <hr>
             <p><a style="color:#E1D89F" ; href="">{{user.email}}</a></p>
             <p>{{user.city}}</p>
@@ -74,11 +76,9 @@
         </lu>
         {{/each}}
         <form action="/page/{{user.id}}" method="POST">
-
             <hr>
-            <label  style="color:#E1D89F;"> Write a review</label>
-            <input type="text" name="comment"/>
-            <button class="bb" type="submit" class="btn-dark btn">Submit review</button>
+            <input style="background-color: #E1D89F; margin-bottom: 15px" type="text" name="comment"/ placeholder="Write a review.." class="form-control">
+            <button type="submit" class="btn-dark btn">Submit review</button>
         </form>
     </div>
 </div>

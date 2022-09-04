@@ -4,8 +4,27 @@
             <div class="container">
                 <main>
                     <div class="album pb-2 px-4   bg-opacity-50">
-                        <div class="container">
-                            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4 mb-5">
+                        <div class="container_2">
+                            <form class="search-bar" action="/offer/list" method="POST">
+                                    <div>
+                                        <div class="form-outline" id="search-bar-left">
+                                            <div>
+                                                <input style="background-color: #E1D89F; width:300px" type="text" name="searchInput" placeholder="Search" class="form-control" required/>
+                                            </div>
+                                            <div>
+                                                <input style="color: #E1D89F; margin-left:10px" type="submit" value="Search" class="btn-dark btn">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="filter">
+                                        <select id="filter-select" name="filter-select" class="btn-dark btn" style="color: #E1D89F;">
+                                            <option value="1">Filter</option>
+                                            <option value="1">Sales</option>
+                                            <option value="1">Rents</option>
+                                        </select>
+                                    </div>
+                            </form>
+                            <div class="row row-cols-1 row-cols-sm-3 row-cols-md-4 g-4 mb-5" id="cards">
                                 {{#each foundOffers}}
                                 <div class="col_d">
                                     <div class="card h-100 border-0 bg-dark bg-gradient text-light shadow-lg">
@@ -14,6 +33,7 @@
                                             preserveAspectRatio="xMidYMid slice" focusable="false">
                                         <rect width="100%" height="100%" fill="#55595c"></rect></img>
                                         <div class="card-body">
+                                            <h6 id="offerType" style="color: #3F4E4F;" class=" card-text"> {{this.offerType}}</h6>
                                             <h6 style="color: #ffffff;  font-weight: bold;" class=" card-text">{{this.name}}</h6>
                                             <h6 style="color: #92b48f;" class=" card-text">{{this.price}}</h6>
                                         </div>

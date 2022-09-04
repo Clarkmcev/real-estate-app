@@ -24,6 +24,8 @@ const offerSchema = new Schema({
   isLiked: { type: Number, default: false },
 });
 
+offerSchema.index({ name: "text" });
+
 const Offer = model("Offer", offerSchema);
 
 module.exports = Offer;
