@@ -14,7 +14,7 @@ npm i
 
 ## Lessons
 
-This project has allowed to grasp the backend concepts with Node, Expres and Mongoose. The fundamentals of routings, Mongoose queries and how to work with github.
+This project has allowed to grasp the backend concepts with Node, Expres and Mongoose. The fundamentals of routing, handlebars, Mongoose queries and how to work with github.
 
 ## Stack
 
