@@ -12,6 +12,14 @@ Use node package manager to install the required packages
 npm i 
 ```
 
+## What I've learnt?
+
+This project has allowed to grasp the concepts of Node and Express. I got the chance to 
+
 ## Stack
 
+Node, Express, MongoDB, Mongoose
+
 ## Backlogs
+
+Allow the user to upload multipled images for an offer
