@@ -7,9 +7,10 @@ body {
   src: url('Margin DEMO.otf'); /*URL to font*/
 }
 
-/* #class-logo, #carousel-inner, .fst-bold {
-  font-family: 'Margin DEMO';
-} */
+#class-logo, #carousel-inner {
+  /* font-family: 'Margin DEMO'; */
+  font-style: 100px;
+}
 
 .navbar-nav li {
   margin-left: 40px;
@@ -30,12 +31,27 @@ body {
   border: 3px solid #eee;
 }
 
+.d-flex {
+  justify-content: space-between;
+}
+
 .card-img,
 .card-img-bottom,
 .card-img-top {
   width: 100%;
   object-fit: cover;
 }
+
+.footer {
+  position: relative;
+  bottom:0;
+  width: 100%;
+}
+
+/* .container-fluid {
+  position: fixed;
+  top: 0;
+} */
 
 .text-muted {
   padding-bottom: 1rem;
@@ -75,7 +91,7 @@ body {
   border-radius:50%;
 }
 
-.profile {
+.profile { 
   width: 180px;
 }
 
